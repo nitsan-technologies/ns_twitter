@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2017-01-19T17:12:00Z" product-name="ns_twitter">
+		<header/>
+		<body>
+			<trans-unit id="recenttweets">
+				<target>Aktuelle Tweets</target>
+			</trans-unit>
+			<trans-unit id="retweeted_by">
+				<target>Retweeted von</target>
+			</trans-unit>
+			<trans-unit id="tweet.empty">
+				<target>Keine (letzten) Tweets gefunden</target>
+			</trans-unit>
+			<trans-unit id="errorMessage">
+				<target>Die cURL-Erweiterung ist nicht im Server installiert</target>
+			</trans-unit>
+			<trans-unit id="outhError">
+				<target>Autentication fehlt !! Bitte setzen Sie OAuth Access aus dem Backend</target>
+			</trans-unit>
+			<trans-unit id="notweetes">
+				<target>Keine (letzten) Tweets gefunden</target>
+			</trans-unit>
+			<trans-unit id="tweets.reply">
+				<target>Antworten</target>
+			</trans-unit>
+			<trans-unit id="tweets.retweet">
+				<target>Retweeten</target>
+			</trans-unit>
+			<trans-unit id="tweets.like">
+				<target>Favorisieren</target>
+			</trans-unit>
+			<trans-unit id="dateFormat" xml:space="preserve">
+				<target>d M</target>
+			</trans-unit>
+			<trans-unit id="01">
+				<target>Jan</target>
+			</trans-unit>
+			<trans-unit id="02">
+				<target>Feb</target>
+			</trans-unit>
+			<trans-unit id="03">
+				<target>Mär</target>
+			</trans-unit>
+			<trans-unit id="04">
+				<target>Apr</target>
+			</trans-unit>
+			<trans-unit id="05">
+				<target>Kan</target>
+			</trans-unit>
+			<trans-unit id="06">
+				<target>Jun</target>
+			</trans-unit>
+			<trans-unit id="07">
+				<target>Jul</target>
+			</trans-unit>
+			<trans-unit id="08">
+				<target>Aug</target>
+			</trans-unit>
+			<trans-unit id="09">
+				<target>Sep</target>
+			</trans-unit>
+			<trans-unit id="10">
+				<target>Okt</target>
+			</trans-unit>
+			<trans-unit id="11">
+				<target>Nov</target>
+			</trans-unit>
+			<trans-unit id="12">
+				<target>Dez</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

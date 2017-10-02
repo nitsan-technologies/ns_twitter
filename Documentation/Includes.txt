@@ -1,0 +1,56 @@
+.. ==================================================
+.. FOR YOUR INFORMATION
+.. --------------------------------------------------
+.. -*- coding: utf-8 -*- with BOM.
+
+.. This is 'Includes.txt'. It is included at the very top of each and
+   every ReST source file in this documentation project (= manual).
+
+
+.. ==================================================
+.. DEFINE SOME TEXT ROLES
+.. --------------------------------------------------
+
+.. role::   typoscript(code)
+
+.. role::   ts(typoscript)
+   :class:  typoscript
+
+.. role::   php(code)
+
+.. highlight:: php
+
+.. |img-1|      image:: /Images/Administration/TYPO3_NsTwitter_NITSAN_Banner_Preview.jpg
+.. :border: 1
+.. :align: left
+
+.. |img-2|      image:: /Images/Administration/TYPO3_NsTwitter_Extension_NITSAN_Frontend.png
+.. :border: 1
+.. :align: left
+
+.. |img-3|      image:: /Images/Administration/TYPO3_NsTwitter_Extension_NITSAN_Install_Step1.png
+.. :align: left
+
+.. |img-4|      image:: /Images/Administration/TYPO3_NsTwitter_Extension_NITSAN_Install_Step2.png
+.. :border: 1
+.. :align: left
+
+.. |img-5|      image:: /Images/Administration/TYPO3_NsTwitter_Extension_NITSAN_Configuration_Step1.png
+.. :border: 1
+.. :align: left
+
+.. |img-6|      image:: /Images/Administration/TYPO3_NsTwitter_Extension_NITSAN_Configuration_Step2.png
+.. :border: 1
+.. :align: left
+
+.. |img-7|      image:: /Images/Administration/TYPO3_NsTwitter_Extension_NITSAN_Configuration_Step3.png
+.. :border: 1
+.. :align: left
+
+.. |img-8|      image:: /Images/Administration/TYPO3_NsTwitter_Extension_NITSAN_Configuration_Step4.png
+.. :border: 1
+.. :align: left
+
+.. |img-9|      image:: /Images/Administration/TYPO3_NsTwitter_Extension_NITSAN_Configuration_Step5.png 
+.. :border: 1
+.. :align: left

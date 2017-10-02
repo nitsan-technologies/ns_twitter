@@ -1,0 +1,8 @@
+
+plugin.tx_nstwitter {
+	view {
+		templateRootPaths.0 = {$plugin.tx_nstwitter.view.templateRootPath}
+		partialRootPaths.0 = {$plugin.tx_nstwitter.view.partialRootPath}
+		layoutRootPaths.0 = {$plugin.tx_nstwitter.view.layoutRootPath}
+	}
+}

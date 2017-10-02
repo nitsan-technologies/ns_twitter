@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2017-01-19T17:12:00Z" product-name="ns_twitter">
+		<header/>
+		<body>
+			<trans-unit id="tx_nstwitter_domain_model_tweet">
+				<source>Tweet</source>
+			</trans-unit>
+			<trans-unit id="recenttweets">
+				<source>Recent Tweets</source>
+			</trans-unit>
+			<trans-unit id="retweeted_by">
+				<source>Retweeted By</source>
+			</trans-unit>
+			<trans-unit id="tweet.empty" xml:space="preserve">
+				<source>No (recent) tweets found for given : %s</source>
+			</trans-unit>
+			<trans-unit id="errorMessage">
+				<source>The cURL extension is not installed in the server</source>
+			</trans-unit>
+			<trans-unit id="outhError">
+				<source>Autentication is missing !! Please set OAuth Access from the backend</source>
+			</trans-unit>
+			<trans-unit id="notweetes">
+				<source>No (recent) tweets found</source>
+			</trans-unit>
+			<trans-unit id="tweets.reply">
+				<source>Reply</source>
+			</trans-unit>
+			<trans-unit id="tweets.retweet">
+				<source>Retweet</source>
+			</trans-unit>
+			<trans-unit id="tweets.like">
+				<source>Like</source>
+			</trans-unit>
+			<trans-unit id="replayingto">
+				<source>Replaying to </source>
+			</trans-unit>
+			<trans-unit id="dateFormat">
+				<source>d M</source>
+			</trans-unit>
+			<trans-unit id="rightnow">
+				<source>Right now</source>
+			</trans-unit>
+			<trans-unit id="seconds">
+				<source> seconds ago</source>
+			</trans-unit>
+			<trans-unit id="oneminute">
+				<source>About 1 minute ago</source>
+			</trans-unit>
+			<trans-unit id="minute">
+				<source> minutes ago</source>
+			</trans-unit>
+			<trans-unit id="onehour">
+				<source>About 1 hour ago</source>
+			</trans-unit>
+			<trans-unit id="hours">
+				<source> hours ago</source>
+			</trans-unit>
+			<trans-unit id="yesterday">
+				<source>Yesterday</source>
+			</trans-unit>
+			<trans-unit id="days">
+				<source> days ago</source>
+			</trans-unit>
+			<trans-unit id="01">
+				<source>Jan</source>
+			</trans-unit>
+			<trans-unit id="02">
+				<source>Feb</source>
+			</trans-unit>
+			<trans-unit id="03">
+				<source>Mar</source>
+			</trans-unit>
+			<trans-unit id="04">
+				<source>Apr</source>
+			</trans-unit>
+			<trans-unit id="05">
+				<source>May</source>
+			</trans-unit>
+			<trans-unit id="06">
+				<source>Jun</source>
+			</trans-unit>
+			<trans-unit id="07">
+				<source>Jul</source>
+			</trans-unit>
+			<trans-unit id="08">
+				<source>Aug</source>
+			</trans-unit>
+			<trans-unit id="09">
+				<source>Sep</source>
+			</trans-unit>
+			<trans-unit id="10">
+				<source>Oct</source>
+			</trans-unit>
+			<trans-unit id="11">
+				<source>Nov</source>
+			</trans-unit>
+			<trans-unit id="12">
+				<source>Dec</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

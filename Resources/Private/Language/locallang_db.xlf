@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2017-01-19T17:12:00Z" product-name="ns_twitter">
+		<header/>
+		<body>
+			<trans-unit id="wizardTitle">
+				<source>Recent Tweets</source>
+			</trans-unit>
+			<trans-unit id="wizardDescription">
+				<source>Display most recent tweets</source>
+			</trans-unit>
+			<!-- Flexform -->
+			<trans-unit id="flexform.sheetTitle">
+				<source>Main Settings</source>
+			</trans-unit>
+			<trans-unit id="flexform.settings.mode">
+				<source>Mode</source>
+			</trans-unit>
+			<trans-unit id="flexform.settings.mode.user">
+				<source>Username</source>
+			</trans-unit>
+			<trans-unit id="flexform.settings.mode.hashtag">
+				<source>Keyword</source>
+			</trans-unit>
+			<trans-unit id="flexform.settings.limit">
+				<source>Tweets to display</source>
+			</trans-unit>
+			<trans-unit id="flexform.settings.username">
+				<source>Username</source>
+			</trans-unit>
+			<trans-unit id="flexform.settings.hashtag">
+				<source>Hashtag</source>
+			</trans-unit>
+			<trans-unit id="flexform.additional">
+				<source>Additional Configuration</source>
+			</trans-unit>
+			<trans-unit id="flexform.dateFormat">
+				<source>Select Datetime format</source>
+			</trans-unit>
+			<trans-unit id="flexform.settings.dateFormat.0">
+				<source>E.g 2 hours ago</source>
+			</trans-unit>
+			<trans-unit id="flexform.settings.dateFormat.1">
+				<source>Simple date and month (e.g 19 May)</source>
+			</trans-unit>
+			<trans-unit id="flexform.reply">
+				<source>Show reply link</source>
+			</trans-unit>
+			<trans-unit id="flexform.retweet">
+				<source>Show retweet link</source>
+			</trans-unit>
+			<trans-unit id="flexform.like">
+				<source>Show favorite link</source>
+			</trans-unit>
+			<!-- Constant Editor -->
+			<trans-unit id="consumerKey">
+				<source>OAuth Consumer Key</source>
+			</trans-unit>
+			<trans-unit id="consumerSecret">
+				<source>OAuth Consumer Secret</source>
+			</trans-unit>
+			<trans-unit id="consumerTokenKey">
+				<source>OAuth Access Token Key</source>
+			</trans-unit>
+			<trans-unit id="consumerTokenSecret">
+				<source>OAuth Access Token Secret</source>
+			</trans-unit>
+			
+		</body>
+	</file>
+</xliff>

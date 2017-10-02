@@ -1,0 +1,11 @@
+
+plugin.tx_nstwitter {
+	view {
+		# cat=plugin.tx_nstwitter/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:ns_twitter/Resources/Private/Templates/
+		# cat=plugin.tx_nstwitter/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:ns_twitter/Resources/Private/Partials/
+		# cat=plugin.tx_nstwitter/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:ns_twitter/Resources/Private/Layouts/
+	}
+}

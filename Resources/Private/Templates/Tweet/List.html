@@ -1,0 +1,97 @@
+
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+	<h3 class="title"><f:translate key="recenttweets" /></h3>
+	<div class="error">
+		<f:flashMessages />
+	</div>
+	<div class="stream-container">
+		<div class="stream">
+			<ol class="stream-items js-navigable-stream" id="stream-items-id">
+				<f:for each="{tweets}" as="tweet" iteration="it" iteration="i">
+					<f:alias map="{orig_tweet: '{f:if(condition:tweet.retweeted_status,then:tweet.retweeted_status,else:tweet)}'}">
+						<li class="stream-item">
+							<div class="tweet">
+								<div class="content">
+									<div class="stream-item-header">
+										<f:link.external uri="http://twitter.com/{orig_tweet.user.screen_name}" target="_blank" class="account-group">
+											<img src="{orig_tweet.user.profile_image_url}" class="avatar" />
+											<strong class="fullname">{orig_tweet.user.name}</strong>
+											<span class="username" data-aria-label-part=""><s> @</s><b>{orig_tweet.user.screen_name}</b></span>
+										</f:link.external>
+									</div>
+									<div class="js-tweet-text-container">
+										
+									<f:if condition="{orig_tweet.in_reply_to_screen_name}">
+										<div class="ReplyingToContextBelowAuthor"><f:translate key='replayingto' /><a href='https://twitter.com/{orig_tweet.in_reply_to_screen_name}' target="_blank"><s>@</s><b>{orig_tweet.in_reply_to_screen_name} </b></a></div></f:if>
+										<f:format.html>{tweet.text}</f:format.html>
+									</div>
+									<small class="time">
+										<a href="http://twitter.com/{orig_tweet.user.screen_name}/status/{orig_tweet.id_str}" target="_blank">
+										<f:if condition="{settings.dateFormat}=='ago'">
+											<f:then>
+												{tweet.created_at}
+											</f:then>
+											<f:else>
+												<f:format.date format="j">{tweet.created_at}</f:format.date> <f:translate key="<f:format.date format='%m'>{tweet.created_at}</f:format.date>" /> <f:format.date format="Y">{tweet.created_at}</f:format.date>
+											</f:else>
+										</f:if>
+										</a>
+									</small>
+									<f:if condition="{tweet.retweeted_status}">
+										<div class="cwtw-Retweet">
+											<i class="fa fa-retweet" aria-hidden="true"></i>
+											<f:translate key="retweeted_by" /> <a href="https://twitter.com/{tweet.user.screen_name}" target="_blank">{tweet.user.name}</a>
+										</div>
+									</f:if>
+
+									<div class="stream-item-footer">
+										<ul class="tweetactions">
+											<f:if condition="{settings.reply}">
+												<li class="tweet-action">
+													<a class="tweetaction tweetaction-reply" href="https://twitter.com/intent/tweet?in_reply_to={tweet.id_str}" target="_blank">
+														<div class="icon icon-reply"><i class="fa fa-reply" aria-hidden="true"></i></div>
+														<span class="tweetaction-stat"><f:translate key='tweets.reply' /></span>
+													</a>
+												</li>
+											</f:if>
+											<f:if condition="{settings.retweet}">
+												<li class="tweetaction">
+													<a class="tweetaction tweetaction-retweet" href="https://twitter.com/intent/retweet?tweet_id={tweet.id_str}" target="_blank">
+														<div class="icon icon-retweet"><i class="fa fa-retweet" aria-hidden="true"></i></div>
+														<span class="tweetaction-stat"><f:translate key='tweets.retweet' /><f:if condition="{tweet.retweet_count} > 0"> ({tweet.retweet_count})</f:if></span>
+													</a>
+												</li>
+											</f:if>
+											<f:if condition="{settings.like}">
+												<li class="tweetaction">
+													<a class="tweetaction tweetaction-like" href="https://twitter.com/intent/like?tweet_id={tweet.id_str}" target="_blank">
+														<div class="icon icon-like"><i class="fa fa-star" aria-hidden="true"></i></div>
+														<span class="tweetaction-stat"><f:translate key='tweets.like' /><f:if condition="{tweet.favorite_count} > 0"> ({tweet.favorite_count})</f:if></span>
+													</a>
+												</li>
+											</f:if>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+					</f:alias>
+				</f:for>
+			</ol>
+		</div>
+	</div>
+		
+</f:section>

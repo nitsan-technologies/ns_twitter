@@ -1,0 +1,125 @@
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<!--
+			################################
+			  SHEET General Settings
+			################################
+		-->
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.sheetTitle</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.mode>
+						<TCEforms>
+							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.mode</label>
+							<onChange>reload</onChange>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.mode.user</numIndex>
+										<numIndex index="1">user</numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.mode.hashtag</numIndex>
+										<numIndex index="1">hashtag</numIndex>
+									</numIndex>
+								</items>
+								<default>user</default>
+							</config>
+						</TCEforms>
+					</settings.mode>
+					<settings.username>
+						<TCEforms>
+							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.username</label>
+							<displayCond>FIELD:settings.mode:=:user</displayCond>
+							<config>
+								<type>input</type>
+								<eval>required</eval>
+							</config>
+						</TCEforms>
+					</settings.username>
+					<settings.hashtag>
+						<TCEforms>
+							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.hashtag</label>
+							<displayCond>FIELD:settings.mode:=:hashtag</displayCond>
+							<config>
+								<type>text</type>
+								<eval>required</eval>
+							</config>
+						</TCEforms>
+					</settings.hashtag>
+					<settings.limit>
+						<TCEforms>
+							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.limit</label>
+							<config>
+								<type>input</type>
+								<size>100</size>
+								<default>5</default>
+							</config>
+						</TCEforms>
+					</settings.limit>
+				</el>
+			</ROOT>
+		</sDEF>
+
+		<additional>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.additional</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.dateFormat>
+						<TCEforms>
+							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.dateFormat</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.dateFormat.0</numIndex>
+										<numIndex index="1">ago</numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.dateFormat.1</numIndex>
+										<numIndex index="1">date</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</settings.dateFormat>
+					<settings.reply>
+						<TCEforms>
+							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.reply</label>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</settings.reply>
+					<settings.retweet>
+						<TCEforms>
+							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.retweet</label>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</settings.retweet>
+					<settings.like>
+						<TCEforms>
+							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.like</label>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</settings.like>
+				</el>
+			</ROOT>
+		</additional>
+	</sheets>
+</T3DataStructure>
