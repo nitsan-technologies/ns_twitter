@@ -63,13 +63,6 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$this->setConsumer($configuration['key'], $configuration['secret']);
 		$this->setToken($configuration['authkey'], $configuration['authtoken']);
 
-		// Ouput text to user based on test
-		$pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
-
-		$css = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('ns_twitter') . 'Resources/Public/Css/style.css';
-		$font_awesom = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('ns_twitter') . 'Resources/Public/Css/font-awesome/css/font-awesome.min.css';
-		$pageRenderer->addCssFile($css, $rel = 'stylesheet', $media = 'all', $compress = true, $forceOnTop = false);
-		$pageRenderer->addCssFile($font_awesom, $rel = 'stylesheet', $media = 'all', $compress = true, $forceOnTop = false);
 		/** Set access tokens here - see: https://dev.twitter.com/apps/ **/
 		if ($configuration['key'] !== '' && $configuration['secret'] && $configuration['authkey'] && $configuration['authtoken']) {
 			$url = "https://api.twitter.com/oauth2/token";
@@ -134,7 +127,7 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 						else{
 							$args[] = $this->settings['hashtag'];
 						}
-						$this->addFlashMessage(LocalizationUtility::translate('tweet.empty', 'ns_twitter', 
+						$this->addFlashMessage(LocalizationUtility::translate('tweet.empty', 'ns_twitter',
 						$args),'', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
 					}
 				}
@@ -182,7 +175,7 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$request->sendRequest(GeneralUtility::makeInstance(\Nitsan\NsTwitter\Contrib\OAuthSignatureMethod_HMAC_SHA1::class) , $this->consumer, $this->token);
 
 		$url = $request->getUrl();
-		$headers = get_headers($url);  
+		$headers = get_headers($url);
 		$method = 'GET';
 		if(strpos($headers[0],'404') === false){
 			if ($explode[0] == 7 || $explode[0] < 7) {
@@ -197,7 +190,7 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	            // Return a PSR-7 compliant response object
 	            $response = $requestFactory->request($url, 'GET');
 	            if($response == False){
-	            	
+
 	            }
 	            return $response;
 			}

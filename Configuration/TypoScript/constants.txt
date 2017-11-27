@@ -8,4 +8,8 @@ plugin.tx_nstwitter {
 		# cat=plugin.tx_nstwitter/file; type=string; label=Path to template layouts (FE)
 		layoutRootPath = EXT:ns_twitter/Resources/Private/Layouts/
 	}
+	settings {
+		cssPath = EXT:ns_twitter/Resources/Public/Css/style.css
+		cssPathFont = EXT:ns_twitter/Resources/Public/Css/font-awesome/css/font-awesome.min.css
+	}
 }
