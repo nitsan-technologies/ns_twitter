@@ -1,5 +1,5 @@
 {
-  "name": "nitsan-technologies/ns_twitter",
+  "name": "matthewcooper/ns_twitter",
   "description": "Twitter plugin to display all your Tweets",
   "require": {
     "typo3/cms": "^7.6|^8.4",
