@@ -1,53 +1,57 @@
-﻿.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
-.. include:: Includes.txt
+﻿.. include:: Includes.txt
 
 
 .. _start:
 
-==================================================
-[NITSAN] Twitter plugin to display all your Tweets
-==================================================
+=====================================
+Documentation for ext:ns_twitter
+=====================================
 
-.. only:: html
+:Extension:    `ns_twitter <https://extensions.typo3.org/extension/ns_twitter/>`_
+               for TYPO3
 
-	:Classification:
-		ns_twitter
+:Version:      |release|
 
-	:Version:
-		|release|
+:Description:
+    [NITSAN] Twitter TYPO3 Extension brings your all twitter timeline tweets to your TYPO3 site so your tweets will not be rate limited at Twitter!
 
-	:Language:
-		en
+:Keywords:
+   Twitter, Tweets, RealTime, Recent, Feeds, TYPO3, Web, NITSAN, ns
 
-	:Keywords:
-		Twitter, Tweets, RealTime, Recent, Feeds, TYPO3, Web, NITSAN, ns
+:Author:       Sanjay Chauhan <sanjay@nitsan.in>
 
-	:Copyright:
-		2017
+:Company:
+   [NITSAN Technologies] http://www.nitsan.in/ \| http://www.itug.in/
 
-	:Author:
-		Sanjay Chuahan
+:License:
+   |cc-license| This work is licensed under a
+   `Creative Commons Attribution 4.0 International License
+   <http://creativecommons.org/licenses/by/4.0/>`_.
 
-	:License:
-		This document is published under the Open Content License
-		available from http://www.opencontent.org/opl.shtml
+:Context:
+   The content of this document is related to TYPO3, a GNU/GPL CMS framework
+   available from https://typo3.org/.
 
-	:Rendered:
-		|today|
+:Repository:   https://github.com/nitsan-technologies/ns_twitter
 
-	The content of this document is related to TYPO3,
-	a GNU/GPL CMS/Framework available from `www.typo3.org <http://www.typo3.org/>`_.
+:Contribute:   Please `report issues at Github
+               <https://github.com/nitsan-technologies/ns_twitter/issues>`__.
+
+:Rendered:     |today|
 
 
-	**Table of Contents**
+
+.. |cc-license| image:: license.png
+                :alt: alt="Creative Commons License"
+                :target: http://creativecommons.org/licenses/by/4.0/
+
 
 .. toctree::
-	:maxdepth: 3
-	:titlesonly:
-	:glob:
+   :hidden:
 
-	AdministratorManual/Index
+   Sitemap/Index
+   Introduction/Index
+   Installation/Index
+   Configuration/Index
+   Support
+   Targets
