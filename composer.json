@@ -1,0 +1,23 @@
+{
+  "name": "matthewcooper/ns_twitter",
+  "description": "Twitter plugin to display all your Tweets",
+  "require": {
+    "typo3/cms": "^7.6|^8.4",
+    "php": ">=7.0.0"
+  },
+  "type": "typo3-cms-extension",
+  "keywords": [
+    "TYPO3 CMS",
+    "twitter"
+  ],
+  "homepage": "https://extensions.typo3.org/extension/ns_twitter/",
+  "license": "GPL-2.0+",
+  "support": {
+    "issues": "https://extensions.typo3.org/extension/ns_twitter/issues"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nitsan\\NsTwitter\\": "Classes/"
+    }
+  }
+}

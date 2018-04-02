@@ -6,3 +6,12 @@ plugin.tx_nstwitter {
 		layoutRootPaths.0 = {$plugin.tx_nstwitter.view.layoutRootPath}
 	}
 }
+
+page {
+	includeCSS {
+		nstwitter_css = {$plugin.tx_nstwitter.settings.cssPath}
+		nstwitter_css.if.isTrue = {$plugin.tx_nstwitter.settings.cssPath}
+		nstwitter_font = {$plugin.tx_nstwitter.settings.cssPathFont}
+		nstwitter_font.if.isTrue = {$plugin.tx_nstwitter.settings.cssPathFont}
+	}
+}
