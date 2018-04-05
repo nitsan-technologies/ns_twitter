@@ -1,13 +1,6 @@
 <T3DataStructure>
-	<meta>
-		<langDisable>1</langDisable>
-	</meta>
 	<sheets>
-		<!--
-			################################
-			  SHEET General Settings
-			################################
-		-->
+
 		<sDEF>
 			<ROOT>
 				<TCEforms>
@@ -121,5 +114,6 @@
 				</el>
 			</ROOT>
 		</additional>
+		
 	</sheets>
 </T3DataStructure>

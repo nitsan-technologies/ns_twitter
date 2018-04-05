@@ -52,7 +52,7 @@ Setup all the configuration of Live chat:
 
 
 3. **Add Plugin** to your page where you want to show your tweets.
-------------------------------------------------------------------
+-------------------------------------------------------------------
 
 .. figure:: Images/TYPO3_NsTwitter_Extension_NITSAN_Configuration_Step4.png
    :alt: screenshot "TYPO3_NsTwitter_Extension_NITSAN_Configuration_Step4"
@@ -60,10 +60,18 @@ Setup all the configuration of Live chat:
    :width: 1100px
 
 
-4. Configure it as per your requirements.
-------------------------------------------
+4. **Configure** it as per your requirements.
+----------------------------------------------
 
 .. figure:: Images/TYPO3_NsTwitter_Extension_NITSAN_Configuration_Step5.png
+   :alt: screenshot "TYPO3_NsTwitter_Extension_NITSAN_Configuration_Step5"
+   :class: with-shadow
+   :width: 1100px
+
+5. You can add your own **CSS** path by configuring below constant file path or **remove path** that will **not add css** in your project. 
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+.. figure:: Images/TYPO3_NsTwitter_Extension_NITSAN_Configuration_CSS.png
    :alt: screenshot "TYPO3_NsTwitter_Extension_NITSAN_Configuration_Step5"
    :class: with-shadow
    :width: 1100px

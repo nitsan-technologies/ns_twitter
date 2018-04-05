@@ -9,7 +9,10 @@ plugin.tx_nstwitter {
 		layoutRootPath = EXT:ns_twitter/Resources/Private/Layouts/
 	}
 	settings {
+		# cat=plugin.tx_nstwitter/file; type=string; label= Style CSS (FE)
 		cssPath = EXT:ns_twitter/Resources/Public/Css/style.css
+		
+		# cat=plugin.tx_nstwitter/file; type=string; label= Font Awesome Path (FE)
 		cssPathFont = EXT:ns_twitter/Resources/Public/Css/font-awesome/css/font-awesome.min.css
 	}
 }
