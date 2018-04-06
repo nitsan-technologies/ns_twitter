@@ -30,8 +30,8 @@ To activate the Twitter service for your TYPO3 site:
       :width: 1100px
 
 
-Setup all the configuration of Live chat:
-==========================================
+Setup all the configuration:
+============================
 
 1. Switch to the module Admin tools *Extensions* and then edit **configuration**
 ------------------------------------------------------------------------------------
