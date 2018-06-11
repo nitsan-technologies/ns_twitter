@@ -26,8 +26,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 							<div class="tweet">
 								<div class="content">
 									<div class="stream-item-header">
-										<f:link.external uri="http://twitter.com/{orig_tweet.user.screen_name}" target="_blank" class="account-group">
-											<img src="{orig_tweet.user.profile_image_url}" class="avatar" />
+										<f:link.external uri="https://twitter.com/{orig_tweet.user.screen_name}" target="_blank" class="account-group">
+											<img src="{orig_tweet.user.profile_image_url_https}" class="avatar" />
 											<strong class="fullname">{orig_tweet.user.name}</strong>
 											<span class="username" data-aria-label-part=""><s> @</s><b>{orig_tweet.user.screen_name}</b></span>
 										</f:link.external>
@@ -39,7 +39,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 										<f:format.html>{tweet.text}</f:format.html>
 									</div>
 									<small class="time">
-										<a href="http://twitter.com/{orig_tweet.user.screen_name}/status/{orig_tweet.id_str}" target="_blank">
+										<a href="https://twitter.com/{orig_tweet.user.screen_name}/status/{orig_tweet.id_str}" target="_blank">
 										<f:if condition="{settings.dateFormat}=='ago'">
 											<f:then>
 												{tweet.created_at}

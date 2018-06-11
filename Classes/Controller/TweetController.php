@@ -112,8 +112,10 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 							$resultdate = strtotime($createdDate);
 						}
 
+						// Text http to https
 						$resulttext = $this->convert_links($text);
-						$results[$key]['text'] = $resulttext;
+						$finalresulttext = (str_replace("http://", "https://", $resulttext));
+						$results[$key]['text'] = $finalresulttext;
 						$results[$key]['created_at'] = $resultdate;
 					}
 					if(!empty($results)){
