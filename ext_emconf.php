@@ -12,7 +12,7 @@
 
 $EM_CONF[$_EXTKEY] = array(
 	'title' => '[NITSAN] Twitter plugin to display all your Tweets',
-	'description' => '[NITSAN] Twitter extension brings all your recent tweets to your TYPO3 site!',
+	'description' => '[NITSAN] Twitter extension brings all your recent tweets to your TYPO3 site',
 	'category' => 'plugin',
 	'author' => 'NITSAN Technologies',
 	'author_email' => 'sanjay@nitsan.in',

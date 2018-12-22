@@ -1,7 +1,7 @@
 {
   "name": "nitsan/ns-twitter",
   "type": "typo3-cms-extension",
-  "description": "Twitter extension brings all your recent tweets to your TYPO3 site",
+  "description": "Twitter extension brings all your recent tweets to your TYPO3 site.",
   "homepage": "https://extensions.typo3.org/extension/ns_twitter/",
   "license": "GPL-2.0+",
   "keywords": [

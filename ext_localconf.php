@@ -16,7 +16,6 @@ if (!defined('TYPO3_MODE')) {
 		
 	)
 );
-
 if (version_compare(TYPO3_branch, '7.0', '>')) {
 	if (TYPO3_MODE === 'BE') {
 	    $icons = [

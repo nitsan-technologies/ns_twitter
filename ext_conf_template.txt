@@ -2,7 +2,6 @@
 # API Configuration
 ###########################
 
-
 # cat=settings; type=string; label=LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:consumerKey
 key =
 # cat=settings; type=string; label=LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:consumerSecret
@@ -10,5 +9,4 @@ secret =
 # cat=settings; type=string; label=LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:consumerTokenKey
 authkey =
 # cat=settings; type=string; label=LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:consumerTokenSecret
-authtoken =
-	
+authtoken =	
