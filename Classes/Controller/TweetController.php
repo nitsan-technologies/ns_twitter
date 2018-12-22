@@ -112,10 +112,8 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 							$resultdate = strtotime($createdDate);
 						}
 
-						// Text http to https
 						$resulttext = $this->convert_links($text);
-						$finalresulttext = (str_replace("http://", "https://", $resulttext));
-						$results[$key]['text'] = $finalresulttext;
+						$results[$key]['text'] = $resulttext;
 						$results[$key]['created_at'] = $resultdate;
 					}
 					if(!empty($results)){
@@ -266,10 +264,10 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$status = preg_replace('/\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[A-Z0-9+&@#\/%=~_|]/i', '<a href="\0" target="_blank">\0</a>', $status);
 
 		// convert @ to follow
-		$status = preg_replace("/(@([_a-z0-9\-]+))/i", "<a href=\"http://twitter.com/$2\" title=\"Follow $2\" $target >$1</a>", $status);
+		$status = preg_replace("/(@([_a-zA-Z0-9\-êàé-]+))/i", "<a href=\"https://twitter.com/$2\" title=\"Follow $2\" $target >$1</a>", $status);
 
 		// convert # to search
-		$status = preg_replace("/(#([_a-z0-9\-]+))/i", "<a href=\"https://twitter.com/search?q=$2\" title=\"Search $1\" $target >$1</a>", $status);
+		$status = preg_replace("/(#([_a-zA-Z0-9\-êàé-]+))/i", "<a href=\"https://twitter.com/search?q=$2\" title=\"Search $1\" $target >$1</a>", $status);
 
 		// return the status
 		return $status;

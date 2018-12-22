@@ -1,8 +1,8 @@
-
 mod.wizards.newContentElement.wizardItems.plugins {
 	elements{
 		ns_twitter{
-			iconIdentifier = content-plugin
+			icon = ../typo3conf/ext/ns_twitter/Resources/Public/Icons/twitter-plugin.svg
+			iconIdentifier = twitter-plugin
 			title = LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:wizardTitle
 			description = LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:wizardDescription
 			tt_content_defValues{
@@ -11,4 +11,5 @@ mod.wizards.newContentElement.wizardItems.plugins {
 			}
 		}
 	}
+	show = *
 }

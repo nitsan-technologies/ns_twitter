@@ -1,72 +1,72 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2017-01-19T17:12:00Z" product-name="ns_twitter">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2017-01-19T17:12:00Z" product-name="ns_twitter">
 		<header/>
 		<body>
 			<trans-unit id="wizardTitle">
-				<source>Recent Tweets</source>
+				<target>Aktuelle Tweets</target>
 			</trans-unit>
 			<trans-unit id="wizardDescription">
-				<source>Display most recent tweets</source>
+				<target>Die neuesten Tweets anzeigen</target>
 			</trans-unit>
 			<trans-unit id="twitterTitle">
-				<source>Twitter Plugin</source>
+				<target>Twitter Plugin</target>
 			</trans-unit>
 			<!-- Flexform -->
 			<trans-unit id="flexform.sheetTitle">
-				<source>Main Settings</source>
+				<target>Haupteinstellungen</target>
 			</trans-unit>
 			<trans-unit id="flexform.settings.mode">
-				<source>Mode</source>
+				<target>Modus</target>
 			</trans-unit>
 			<trans-unit id="flexform.settings.mode.user">
-				<source>Username</source>
+				<target>Nutzername</target>
 			</trans-unit>
 			<trans-unit id="flexform.settings.mode.hashtag">
-				<source>Keyword</source>
+				<target>Stichwort</target>
 			</trans-unit>
 			<trans-unit id="flexform.settings.limit">
-				<source>Tweets To Display</source>
+				<target>Tweets zum Anzeigen</target>
 			</trans-unit>
 			<trans-unit id="flexform.settings.username">
-				<source>Username</source>
+				<target>Nutzername</target>
 			</trans-unit>
 			<trans-unit id="flexform.settings.hashtag">
-				<source>Hashtag</source>
+				<target>Hashtag</target>
 			</trans-unit>
 			<trans-unit id="flexform.additional">
-				<source>Additional Configuration</source>
+				<target>Zusätzliche Konfiguration</target>
 			</trans-unit>
 			<trans-unit id="flexform.dateFormat">
-				<source>Select Datetime Format</source>
+				<target>Wählen Sie das Datetime-Format</target>
 			</trans-unit>
 			<trans-unit id="flexform.settings.dateFormat.0">
-				<source>E.g 2 hours ago</source>
+				<target>Vor 2 Stunden</target>
 			</trans-unit>
 			<trans-unit id="flexform.settings.dateFormat.1">
-				<source>Simple date and month (e.g 19 May)</source>
+				<target>Einfaches Datum und Monat (z. B. 19. Mai)</target>
 			</trans-unit>
 			<trans-unit id="flexform.reply">
-				<source>Show Reply Link</source>
+				<target>Antwort Link Anzeigen</target>
 			</trans-unit>
 			<trans-unit id="flexform.retweet">
-				<source>Show Retweet Link</source>
+				<target>Retweet Link Anzeigen</target>
 			</trans-unit>
 			<trans-unit id="flexform.like">
-				<source>Show Favorite Link</source>
+				<target>Favoriten Link Anzeigen</target>
 			</trans-unit>
 			<!-- Constant Editor -->
 			<trans-unit id="consumerKey">
-				<source>OAuth Consumer Key</source>
+				<target>OAuth Consumer Schlüssel</target>
 			</trans-unit>
 			<trans-unit id="consumerSecret">
-				<source>OAuth Consumer Secret</source>
+				<target>OAuth Consumer Secret</target>
 			</trans-unit>
 			<trans-unit id="consumerTokenKey">
-				<source>OAuth Access Token Key</source>
+				<target>OAuth Zugriffstokenschlüssel</target>
 			</trans-unit>
 			<trans-unit id="consumerTokenSecret">
-				<source>OAuth Access Token Secret</source>
+				<target>OAuth Zugriffs Token Geheimnis</target>
 			</trans-unit>
 			
 		</body>
