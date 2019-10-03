@@ -23,7 +23,7 @@
 									<div class="js-tweet-text-container">
 										
 									<f:if condition="{orig_tweet.in_reply_to_screen_name}">
-										<div class="ReplyingToContextBelowAuthor"><f:translate key='replayingto' /><a href='https://twitter.com/{orig_tweet.in_reply_to_screen_name}' target="_blank"><s>@</s><b>{orig_tweet.in_reply_to_screen_name} </b></a></div></f:if>
+										<div class="ReplyingToContextBelowAuthor"><f:translate key='replyingto' /><a href='https://twitter.com/{orig_tweet.in_reply_to_screen_name}' target="_blank"><s>@</s><b>{orig_tweet.in_reply_to_screen_name} </b></a></div></f:if>
 										<f:format.html>{tweet.text}</f:format.html>
 									</div>
 									<small class="time">
