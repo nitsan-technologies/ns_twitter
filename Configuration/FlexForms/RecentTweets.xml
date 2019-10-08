@@ -57,6 +57,25 @@
 							</config>
 						</TCEforms>
 					</settings.limit>
+					<settings.tweet_mode>
+						<TCEforms>
+							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.tweet_mode</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.tweet_mode.compat</numIndex>
+										<numIndex index="1">compat</numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.tweet_mode.extended</numIndex>
+										<numIndex index="1">extended</numIndex>
+									</numIndex>
+								</items>
+								<default>compat</default>
+							</config>
+						</TCEforms>
+					</settings.tweet_mode>
 				</el>
 			</ROOT>
 		</sDEF>
