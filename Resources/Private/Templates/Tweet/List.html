@@ -8,7 +8,7 @@
 	<div class="stream-container">
 		<div class="stream">
 			<ol class="stream-items js-navigable-stream" id="stream-items-id">
-				<f:for each="{tweets}" as="tweet" iteration="it" iteration="i">
+				<f:for each="{tweets}" as="tweet" iteration="i">
 					<f:alias map="{orig_tweet: '{f:if(condition:tweet.retweeted_status,then:tweet.retweeted_status,else:tweet)}'}">
 						<li class="stream-item">
 							<div class="tweet">
