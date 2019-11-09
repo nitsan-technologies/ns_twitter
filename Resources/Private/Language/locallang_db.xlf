@@ -68,7 +68,15 @@
 			<trans-unit id="consumerTokenSecret">
 				<source>OAuth Access Token Secret</source>
 			</trans-unit>
-			
+			<trans-unit id="flexform.settings.tweet_mode">
+				<source>Tweet Mode</source>
+			</trans-unit>
+			<trans-unit id="flexform.settings.tweet_mode.compat">
+				<source>Standard (max 140 chars)</source>
+			</trans-unit>
+			<trans-unit id="flexform.settings.tweet_mode.extended">
+				<source>Extended (over 140 chars)</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

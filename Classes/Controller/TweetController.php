@@ -73,6 +73,11 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 					);
 					$path = 'statuses/user_timeline';
 					$params['include_entities'] = 'true';
+					// Set requested Tweet Mode
+					if (isset($this->settings['tweet_mode'])){
+						$params['tweet_mode'] = $this->settings['tweet_mode'];
+					}
+					
 					if ($limit) {
 						$params['count'] = $limit;
 					}
@@ -103,16 +108,31 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 					foreach($tweets as $key => $value) {
 						$results[$key] = $value;
 						$createdDate = $value['created_at'];
-						$text = $value['text'];
+
+						// Check if this a retweet (helpful for Template)						
+						$results[$key]['is_retweet'] = isset($value['retweeted_status']);
+						 
 						if ($this->settings['dateFormat'] == 'ago') {
 							$resultdate = $this->timeDifference($createdDate);
 						}
 						else {
 							$resultdate = strtotime($createdDate);
 						}
+						// Keep raw text for use in template for plaintext
+						$results[$key]['text_raw'] = $results[$key]['text'];
+						// Store converted text
+						$results[$key]['text'] = $this->convert_links($results[$key]['text']);
 
-						$resulttext = $this->convert_links($text);
-						$results[$key]['text'] = $resulttext;
+						if ($this->settings['tweet_mode'] == 'extended') {
+							if ($results[$key]['is_retweet'] ) {
+								// Keep raw for use in template for plaintext
+								$results[$key]['retweeted_status']['full_text_raw'] = $value['retweeted_status']['full_text'];
+								$results[$key]['retweeted_status']['full_text'] = $this->convert_links($results[$key]['retweeted_status']['full_text']);
+							}
+							$results[$key]['full_text_raw'] = $results[$key]['full_text'];
+							$results[$key]['full_text'] = $this->convert_links($results[$key]['full_text']);
+						} 
+
 						$results[$key]['created_at'] = $resultdate;
 					}
 					if(!empty($results)){
