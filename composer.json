@@ -1,19 +1,19 @@
 {
   "name": "nitsan/ns-twitter",
   "type": "typo3-cms-extension",
-  "description": "Twitter extension brings all your recent tweets to your TYPO3 site.",
+  "description": "[NITSAN] Twitter extension brings all your recent tweets to your TYPO3 site. Demo: https://demo.t3terminal.com/t3t-extensions/twitter Pro version: https://t3terminal.com/twitter-display-plugin-free/",
   "homepage": "https://extensions.typo3.org/extension/ns_twitter/",
   "license": "GPL-2.0+",
   "keywords": [
     "TYPO3 CMS",
     "twitter",
-    "Nitsan"
+    "NITSAN"
   ],
   "support": {
     "issues": "https://github.com/nitsan-technologies/ns_twitter/issues"
   },
   "require": {
-    "typo3/cms-core": ">=7.6.0"
+    "typo3/cms-core": ">=7.0.0"
   },
   "autoload": {
     "psr-4": {
@@ -21,7 +21,6 @@
     }
   },
   "replace": {
-      "ns_twitter": "self.version",
       "nitsan/ns-twitter": "self.version"
   },
   "config": {
