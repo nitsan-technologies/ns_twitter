@@ -185,3 +185,20 @@ s {
   padding-left: 5px;
   vertical-align: baseline;
 }
+
+/*remove padding and add spacing between tweet*/
+.stream-items{
+  padding: 0;
+}
+.stream-items .stream-item{
+  border-radius: 6px;
+  border-top: 1px solid #E1E8ED;
+  margin-bottom: 15px;
+}
+.tx_nstwitter .stream-container{
+  margin-top:  30px;
+}
+.tx_nstwitter .title{
+  line-height:  50px;
+}
+/**/
