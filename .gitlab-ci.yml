@@ -9,7 +9,7 @@ before_script:
 stages:
   - php
   - typoscript
-  - yaml
+  # - yaml
   #- fluid
   #- xliff
 
@@ -46,13 +46,13 @@ typoscript:test:
   script:
     - .Build/bin/typoscript-lint -c tslint.yaml
 
-yaml:test:
-  image: python:alpine3.7
-  stage: yaml
-  before_script:
-    - pip install yamllint==1.10.0
-  script:
-    - yamllint -c .yamllint .
+# yaml:test:
+#   image: python:alpine3.7
+#   stage: yaml
+#   before_script:
+#     - pip install yamllint==1.10.0
+#   script:
+#     - yamllint -c .yamllint .
 
 #fluid:test:
 #  image: composer:1.6

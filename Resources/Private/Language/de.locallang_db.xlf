@@ -26,7 +26,7 @@
 				<target>Stichwort</target>
 			</trans-unit>
 			<trans-unit id="flexform.settings.limit">
-				<target>Tweets zum Anzeigen</target>
+				<target>Anzuzeigende Tweets (einschließlich Retweets und Antworten)</target>
 			</trans-unit>
 			<trans-unit id="flexform.settings.username">
 				<target>Nutzername</target>
@@ -41,7 +41,7 @@
 				<target>Wählen Sie das Datetime-Format</target>
 			</trans-unit>
 			<trans-unit id="flexform.settings.dateFormat.0">
-				<target>Vor 2 Stunden</target>
+				<target>Zeit seit dem Tweet (z. B. vor 2 Stunden)</target>
 			</trans-unit>
 			<trans-unit id="flexform.settings.dateFormat.1">
 				<target>Einfaches Datum und Monat (z. B. 19. Mai)</target>
@@ -69,13 +69,19 @@
 				<target>OAuth Zugriffs Token Geheimnis</target>
 			</trans-unit>
 			<trans-unit id="flexform.settings.tweet_mode">
-				<source>Tweet Modus</source>
+				<target>Tweet Modus</target>
 			</trans-unit>
 			<trans-unit id="flexform.settings.tweet_mode.compat">
-				<source>Standard (Maximal 140 Zeichen)</source>
+				<target>Standard (Maximal 140 Zeichen)</target>
 			</trans-unit>
 			<trans-unit id="flexform.settings.tweet_mode.extended">
-				<source>Erweitert (Mehr als 140 Zeichen)</source>
+				<target>Erweitert (Mehr als 140 Zeichen)</target>
+			</trans-unit>
+			<trans-unit id="flexform.exclude_replies">
+				<target>Antworten ausschließen</target>
+			</trans-unit>
+			<trans-unit id="flexform.include_rts">
+				<target>Retweets ausschließen</target>
 			</trans-unit>
 		</body>
 	</file>

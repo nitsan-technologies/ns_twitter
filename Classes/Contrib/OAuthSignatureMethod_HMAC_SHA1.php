@@ -35,9 +35,9 @@ namespace Nitsan\NsTwitter\Contrib;
  */
 class OAuthSignatureMethod_HMAC_SHA1 extends OAuthSignatureMethod
 {
-    function get_name()
+    public function get_name()
     {
-        return "HMAC-SHA1";
+        return 'HMAC-SHA1';
     }
 
     public function build_signature($request, $consumer, $token)
@@ -45,10 +45,10 @@ class OAuthSignatureMethod_HMAC_SHA1 extends OAuthSignatureMethod
         $base_string          = $request->get_signature_base_string();
         $request->base_string = $base_string;
 
-        $key_parts = array(
+        $key_parts = [
             $consumer->secret,
-            ($token) ? $token->secret : ""
-        );
+            ($token) ? $token->secret : ''
+        ];
 
         $key_parts = OAuthUtil::urlencode_rfc3986($key_parts);
         $key       = implode('&', $key_parts);

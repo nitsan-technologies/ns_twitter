@@ -25,20 +25,19 @@ namespace Nitsan\NsTwitter\Contrib;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 class OAuthConsumer
 {
     public $key;
     public $secret;
 
-    function __construct($key, $secret, $callback_url = NULL)
+    public function __construct($key, $secret, $callback_url = null)
     {
         $this->key          = $key;
         $this->secret       = $secret;
         $this->callback_url = $callback_url;
     }
 
-    function __toString()
+    public function __toString()
     {
         return "OAuthConsumer[key=$this->key,secret=$this->secret]";
     }

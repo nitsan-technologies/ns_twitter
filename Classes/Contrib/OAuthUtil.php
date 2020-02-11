@@ -25,18 +25,15 @@ namespace Nitsan\NsTwitter\Contrib;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 class OAuthUtil
 {
     public static function urlencode_rfc3986($input)
     {
-
         if (is_array($input)) {
-            return array_map(function($n)
-            {
+            return array_map(function ($n) {
                 return static::urlencode_rfc3986($n);
             }, $input);
-        } else if (is_scalar($input)) {
+        } elseif (is_scalar($input)) {
             return str_replace('+', ' ', str_replace('%7E', '~', rawurlencode($input)));
         } else {
             return '';
@@ -57,10 +54,10 @@ class OAuthUtil
     // May 28th, 2010 - method updated to tjerk.meesters for a speed improvement.
     public static function split_header($header, $only_allow_oauth_parameters = true)
     {
-        $params = array();
+        $params = [];
         if (preg_match_all('/(' . ($only_allow_oauth_parameters ? 'oauth_' : '') . '[a-z_-]*)=(:?"([^"]*)"|([^,]*))/', $header, $matches)) {
             foreach ($matches[1] as $i => $h) {
-                $params[$h] = OAuthUtil::urldecode_rfc3986(empty($matches[3][$i]) ? $matches[4][$i] : $matches[3][$i]);
+                $params[$h] = self::urldecode_rfc3986(empty($matches[3][$i]) ? $matches[4][$i] : $matches[3][$i]);
             }
             if (isset($params['realm'])) {
                 unset($params['realm']);
@@ -81,26 +78,28 @@ class OAuthUtil
             // we always want the keys to be Cased-Like-This and arh()
             // returns the headers in the same case as they are in the
             // request
-            $out = array();
-            foreach ($headers AS $key => $value) {
-                $key       = str_replace(" ", "-", ucwords(strtolower(str_replace("-", " ", $key))));
+            $out = [];
+            foreach ($headers as $key => $value) {
+                $key       = str_replace(' ', '-', ucwords(strtolower(str_replace('-', ' ', $key))));
                 $out[$key] = $value;
             }
         } else {
             // otherwise we don't have apache and are just going to have to hope
             // that $_SERVER actually contains what we need
-            $out = array();
-            if (isset($_SERVER['CONTENT_TYPE']))
+            $out = [];
+            if (isset($_SERVER['CONTENT_TYPE'])) {
                 $out['Content-Type'] = $_SERVER['CONTENT_TYPE'];
-            if (isset($_ENV['CONTENT_TYPE']))
+            }
+            if (isset($_ENV['CONTENT_TYPE'])) {
                 $out['Content-Type'] = $_ENV['CONTENT_TYPE'];
+            }
 
             foreach ($_SERVER as $key => $value) {
-                if (substr($key, 0, 5) == "HTTP_") {
+                if (substr($key, 0, 5) == 'HTTP_') {
                     // this is chaos, basically it is just there to capitalize the first
                     // letter of every word that is not an initial HTTP and strip HTTP
                     // code from przemek
-                    $key       = str_replace(" ", "-", ucwords(strtolower(str_replace("_", " ", substr($key, 5)))));
+                    $key       = str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($key, 5)))));
                     $out[$key] = $value;
                 }
             }
@@ -112,16 +111,17 @@ class OAuthUtil
     // parameters like this
     public static function parse_parameters($input)
     {
-        if (!isset($input) || !$input)
-            return array();
+        if (!isset($input) || !$input) {
+            return [];
+        }
 
         $pairs = explode('&', $input);
 
-        $parsed_parameters = array();
+        $parsed_parameters = [];
         foreach ($pairs as $pair) {
             $split     = explode('=', $pair, 2);
-            $parameter = OAuthUtil::urldecode_rfc3986($split[0]);
-            $value     = isset($split[1]) ? OAuthUtil::urldecode_rfc3986($split[1]) : '';
+            $parameter = self::urldecode_rfc3986($split[0]);
+            $value     = isset($split[1]) ? self::urldecode_rfc3986($split[1]) : '';
 
             if (isset($parsed_parameters[$parameter])) {
                 // We have already recieved parameter(s) with this name, so add to the list
@@ -130,9 +130,9 @@ class OAuthUtil
                 if (is_scalar($parsed_parameters[$parameter])) {
                     // This is the first duplicate, so transform scalar (string) into an array
                     // so we can add the duplicates
-                    $parsed_parameters[$parameter] = array(
+                    $parsed_parameters[$parameter] = [
                         $parsed_parameters[$parameter]
-                    );
+                    ];
                 }
 
                 $parsed_parameters[$parameter][] = $value;
@@ -145,8 +145,9 @@ class OAuthUtil
 
     public static function build_http_query($params)
     {
-        if (!$params)
+        if (!$params) {
             return '';
+        }
 
         // Urlencode both keys and values
         $keys   = self::urlencode_rfc3986(array_keys($params));
@@ -157,7 +158,7 @@ class OAuthUtil
         // Ref: Spec: 9.1.1 (1)
         uksort($params, 'strcmp');
 
-        $pairs = array();
+        $pairs = [];
         foreach ($params as $parameter => $value) {
             if (is_array($value)) {
                 // If two or more parameters share the same name, they are sorted by their value

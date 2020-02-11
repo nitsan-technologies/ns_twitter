@@ -64,5 +64,27 @@
 	            <td style='padding-left: 10px;'><i class='fa fa-check'></i></td>
 	        </tr>
 		</f:if>
+		<f:if condition="{flexformData.settings.mode}!='hashtag'">
+			<f:if condition="{flexformData.settings.exclude_replies}">
+				<tr>
+					<th style='text-align:left;'>
+						<f:translate
+							key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.exclude_replies" />
+					</th>
+					<td style='padding-left: 10px;'><i class='fa fa-check'></i></td>
+				</tr>
+			</f:if>
+		</f:if>
+		<f:if condition="{flexformData.settings.mode}!='hashtag'">
+			<f:if condition="{flexformData.settings.include_rts}">
+				<tr>
+					<th style='text-align:left;'>
+						<f:translate
+							key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.include_rts" />
+					</th>
+					<td style='padding-left: 10px;'><i class='fa fa-check'></i></td>
+				</tr>
+			</f:if>
+		</f:if>
 	</tbody>
 </table>

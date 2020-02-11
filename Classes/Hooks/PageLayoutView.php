@@ -2,18 +2,16 @@
 namespace Nitsan\NsTwitter\Hooks;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
-use TYPO3\CMS\Fluid\View\StandaloneView;
-use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Extbase\Service\FlexFormService;
+use TYPO3\CMS\Fluid\View\StandaloneView;
 
-class PageLayoutView implements \TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface {
-
-    public function preProcess(\TYPO3\CMS\Backend\View\PageLayoutView &$parentObject, &$drawItem, &$headerContent, &$itemContent, array &$row) {
+class PageLayoutView implements \TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface
+{
+    public function preProcess(\TYPO3\CMS\Backend\View\PageLayoutView &$parentObject, &$drawItem, &$headerContent, &$itemContent, array &$row)
+    {
         $extKey = 'ns_twitter';
 
         if ($row['CType'] == 'list' && $row['list_type'] == 'nstwitter_recenttweets') {
-
             $drawItem = false;
             $headerContent = '';
 
@@ -22,7 +20,11 @@ class PageLayoutView implements \TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHo
 
             if (!empty($row['pi_flexform'])) {
                 /** @var FlexFormService $flexFormService */
-                $flexFormService = GeneralUtility::makeInstance(FlexFormService::class);
+                if (version_compare(TYPO3_branch, '9.0', '>')) {
+                    $flexFormService = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Service\FlexFormService::class);
+                } else {
+                    $flexFormService = GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Service\FlexFormService::class);
+                }
             }
 
             // assign all to view

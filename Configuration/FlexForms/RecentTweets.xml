@@ -13,6 +13,7 @@
 							<onChange>reload</onChange>
 							<config>
 								<type>select</type>
+								<renderType>selectSingle</renderType>
 								<items type="array">
 									<numIndex index="0" type="array">
 										<numIndex index="0">LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.mode.user</numIndex>
@@ -52,7 +53,7 @@
 							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.limit</label>
 							<config>
 								<type>input</type>
-								<size>100</size>
+								<eval>trim,required,int</eval>
 								<default>5</default>
 							</config>
 						</TCEforms>
@@ -62,6 +63,7 @@
 							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.tweet_mode</label>
 							<config>
 								<type>select</type>
+								<renderType>selectSingle</renderType>
 								<items type="array">
 									<numIndex index="0" type="array">
 										<numIndex index="0">LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.tweet_mode.compat</numIndex>
@@ -76,6 +78,24 @@
 							</config>
 						</TCEforms>
 					</settings.tweet_mode>
+					<settings.exclude_replies>
+						<TCEforms>
+							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.exclude_replies</label>
+							<displayCond>FIELD:settings.mode:!=:hashtag</displayCond>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</settings.exclude_replies>
+					<settings.include_rts>
+						<TCEforms>
+							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.include_rts</label>
+							<displayCond>FIELD:settings.mode:!=:hashtag</displayCond>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</settings.include_rts>
 				</el>
 			</ROOT>
 		</sDEF>
@@ -92,6 +112,7 @@
 							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.dateFormat</label>
 							<config>
 								<type>select</type>
+								<renderType>selectSingle</renderType>
 								<items type="array">
 									<numIndex index="0" type="array">
 										<numIndex index="0">LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.dateFormat.0</numIndex>
@@ -132,6 +153,5 @@
 				</el>
 			</ROOT>
 		</additional>
-		
 	</sheets>
 </T3DataStructure>

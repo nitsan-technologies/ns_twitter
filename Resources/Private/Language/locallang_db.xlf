@@ -26,7 +26,7 @@
 				<source>Keyword</source>
 			</trans-unit>
 			<trans-unit id="flexform.settings.limit">
-				<source>Tweets To Display</source>
+				<source>Tweets To Display (Including Retweets and Replies)</source>
 			</trans-unit>
 			<trans-unit id="flexform.settings.username">
 				<source>Username</source>
@@ -41,10 +41,10 @@
 				<source>Select Datetime Format</source>
 			</trans-unit>
 			<trans-unit id="flexform.settings.dateFormat.0">
-				<source>E.g 2 hours ago</source>
+				<source>Time since the Tweet (E.g. 2 hours ago)</source>
 			</trans-unit>
 			<trans-unit id="flexform.settings.dateFormat.1">
-				<source>Simple date and month (e.g 19 May)</source>
+				<source>Simple date and month (E.g. 19 May)</source>
 			</trans-unit>
 			<trans-unit id="flexform.reply">
 				<source>Show Reply Link</source>
@@ -76,6 +76,12 @@
 			</trans-unit>
 			<trans-unit id="flexform.settings.tweet_mode.extended">
 				<source>Extended (over 140 chars)</source>
+			</trans-unit>
+			<trans-unit id="flexform.exclude_replies">
+				<source>Exclude Replies</source>
+			</trans-unit>
+			<trans-unit id="flexform.include_rts">
+				<source>Exclude Retweets</source>
 			</trans-unit>
 		</body>
 	</file>
