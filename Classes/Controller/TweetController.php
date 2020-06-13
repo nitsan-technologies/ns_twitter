@@ -28,6 +28,7 @@ namespace Nitsan\NsTwitter\Controller;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
+use TYPO3\CMS\Core\Http\RequestFactory;
 
 /**
  * TweetController
@@ -172,15 +173,31 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
         $versionNum = $version->getNumericTypo3Version();
         $explode = explode('.', $versionNum);
-        $request = \Nitsan\NsTwitter\Contrib\OAuthRequest::requestOauth($this->consumer, $this->token, 'GET', $this->api_url . $path . '.json', $params);
+        $request = \Nitsan\NsTwitter\Contrib\OAuthRequest::requestOauth($this->consumer, $this->token, $method, $this->api_url . $path . '.json', $params);
         $request->sendRequest(GeneralUtility::makeInstance(\Nitsan\NsTwitter\Contrib\OAuthSignatureMethod_HMAC_SHA1::class), $this->consumer, $this->token);
-
         $url = $request->getUrl();
-        $headers = get_headers($url);
-        $method = 'GET';
-        if (strpos($headers[0], '404') === false) {
-            $response = file_get_contents($url);
-            return $response;
+        if (version_compare(TYPO3_branch, '8.0', '>')) {
+            $apiRequest = GeneralUtility::makeInstance(RequestFactory::class);
+            $apiResponse = $apiRequest->request(
+                $url,
+                $method,
+                [
+                    'User-Agent' => 'TYPO3 Extension ns_twitter'
+                ]
+            );
+            $apiResults = $apiResponse->getBody()->getContents();
+            $statusCode = $apiResponse->getStatusCode();
+        } else {
+            $apiRequest = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+                'TYPO3\\CMS\\Core\\Http\\HttpRequest',
+                $url
+            );
+            $apiResponse = $apiRequest->send();
+            $apiResults = $apiResponse->getBody();
+            $statusCode = $apiResponse->getStatus();
+        }
+        if (($statusCode === 200) || empty($apiResults)) {
+            return $apiResults;
         } else {
             if ($this->settings['mode']=='user') {
                 $args[] = $this->settings['username'];
