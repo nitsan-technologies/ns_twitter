@@ -4,5 +4,5 @@ if (!defined('TYPO3_MODE')) {
 }
 
  \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-     '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:ns_twitter/Configuration/TSconfig/ContentElementWizard.txt">'
+     '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:ns_twitter/Configuration/TSconfig/ContentElementWizard.tsconfig">'
  );
