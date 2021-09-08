@@ -29,6 +29,10 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Core\Http\RequestFactory;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Exception\ClientException;
+use TYPO3\CMS\Core\Http\Client\GuzzleClientFactory;
 
 /**
  * TweetController
@@ -177,16 +181,17 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $request->sendRequest(GeneralUtility::makeInstance(\Nitsan\NsTwitter\Contrib\OAuthSignatureMethod_HMAC_SHA1::class), $this->consumer, $this->token);
         $url = $request->getUrl();
         if (version_compare(TYPO3_branch, '8.0', '>')) {
-            $apiRequest = GeneralUtility::makeInstance(RequestFactory::class);
-            $apiResponse = $apiRequest->request(
-                $url,
-                $method,
-                [
+            $client = GuzzleClientFactory::getClient();
+            try {
+                $response = $client->request($method, $url, [
                     'User-Agent' => 'TYPO3 Extension ns_twitter'
-                ]
-            );
-            $apiResults = $apiResponse->getBody()->getContents();
-            $statusCode = $apiResponse->getStatusCode();
+                ]);
+                $apiResults = $response->getBody()->getContents();
+                $statusCode = $response->getStatusCode();
+            } catch (ClientException $e) {
+                $errros = LocalizationUtility::translate('nstwitter.client.error', 'ns_twitter', [$e->getCode()]);
+                throw new \Exception($errros);
+            }
         } else {
             $apiRequest = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
                 'TYPO3\\CMS\\Core\\Http\\HttpRequest',

@@ -99,6 +99,9 @@
 			<trans-unit id="12">
 				<source>Dec</source>
 			</trans-unit>
+			<trans-unit id="nstwitter.client.error" xml:space="preserve">
+				<source>Could not authenticate you. Response code: %s</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

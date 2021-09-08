@@ -83,6 +83,9 @@
 			<trans-unit id="flexform.include_rts">
 				<target>Retweets ausschließen</target>
 			</trans-unit>
+			<trans-unit id="nstwitter.client.error">
+				<target>Sie konnten nicht authentifiziert werden. Antwort-Code: %s</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
