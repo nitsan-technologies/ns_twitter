@@ -65,9 +65,6 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
         /** Set access tokens here - see: https://dev.twitter.com/apps/ **/
         if ($configuration['key'] !== '' && $configuration['secret'] && $configuration['authkey'] && $configuration['authtoken']) {
-            $url = 'https://api.twitter.com/oauth2/token';
-            $auth = base64_encode(urlencode($consumer['key']) . ':' . urlencode($consumer['secret']));
-            $username = urlencode($settings['username']);
             $params['exclude_replies'] = $this->settings['exclude_replies'];
             $params['include_rts'] = $this->settings['include_rts']==1 ? 0 : 1;
             $params['tweet_mode'] = $this->settings['tweet_mode'];
