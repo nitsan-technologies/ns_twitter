@@ -9,11 +9,8 @@
     "twitter",
     "NITSAN"
   ],
-  "support": {
-    "issues": "https://github.com/nitsan-technologies/ns_twitter/issues"
-  },
   "require": {
-    "typo3/cms-core": ">=7.0.0"
+    "typo3/cms-core": "^11.5"
   },
   "autoload": {
     "psr-4": {
@@ -21,7 +18,7 @@
     }
   },
   "replace": {
-      "nitsan/ns-twitter": "self.version"
+    "nitsan/ns-twitter": "self.version"
   },
   "config": {
     "vendor-dir": ".Build/vendor/",
@@ -29,9 +26,8 @@
   },
   "extra": {
     "typo3/cms": {
-        "cms-package-dir": "{$vendor-dir}/typo3/cms",
-        "web-dir": ".Build/public",
-        "extension-key": "ns_twitter"
+      "web-dir": ".Build/public",
+      "extension-key": "ns_twitter"
     }
   }
 }

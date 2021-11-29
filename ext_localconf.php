@@ -1,22 +1,22 @@
 <?php
-if (!defined('TYPO3_MODE')) {
+if (!defined('TYPO3')) {
 	die('Access denied.');
 }
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	'Nitsan.ns_twitter',
+	'NsTwitter',
 	'Recenttweets',
 	[
-		'Tweet' => 'list',
+		\Nitsan\NsTwitter\Controller\TweetController::class => 'list',
 
 	],
 	// non-cacheable actions
 	[
-		'Tweet' => '',
+		\Nitsan\NsTwitter\Controller\TweetController::class => '',
 
 	]
 );
-if (version_compare(TYPO3_branch, '7.0', '>')) {
+if (version_compare(\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Information\Typo3Version::class)->getBranch(), '7.0', '>')) {
 	if (TYPO3_MODE === 'BE') {
 		$icons = [
 			'twitter-plugin' => 'ns_twitter.svg',

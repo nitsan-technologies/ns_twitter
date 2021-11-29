@@ -1,6 +1,15 @@
 <?php
 namespace Nitsan\NsTwitter\Controller;
 
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use Psr\Http\Message\ResponseInterface;
+use TYPO3\CMS\Core\Information\Typo3Version;
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use TYPO3\CMS\Core\Messaging\AbstractMessage;
+use Nitsan\NsTwitter\Contrib\OAuthConsumer;
+use Nitsan\NsTwitter\Contrib\OAuthToken;
+use Nitsan\NsTwitter\Contrib\OAuthRequest;
+use Nitsan\NsTwitter\Contrib\OAuthSignatureMethod_HMAC_SHA1;
 /***************************************************************
 *
 *  Copyright notice
@@ -37,7 +46,7 @@ use TYPO3\CMS\Core\Http\Client\GuzzleClientFactory;
 /**
  * TweetController
  */
-class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class TweetController extends ActionController
 {
     /**
      * The base api url
@@ -51,14 +60,14 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      *
      * @return void
      */
-    public function listAction()
+    public function listAction(): ResponseInterface
     {
         $settings = $this->settings;
         $limit = empty($settings['limit']) ? 5 : $settings['limit'];
-        if (version_compare(TYPO3_branch, '9.0', '>')) {
+        if (version_compare(GeneralUtility::makeInstance(Typo3Version::class)->getBranch(), '9.0', '>')) {
             $configuration = isset($GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['ns_twitter']) ? $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['ns_twitter'] : '';
         } else {
-            $configuration = isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['ns_twitter']) ? unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['ns_twitter']) : '';
+            $configuration = isset($GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['ns_twitter']) ? GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('ns_twitter') : '';
         }
         $this->setConsumer($configuration['key'], $configuration['secret']);
         $this->setToken($configuration['authkey'], $configuration['authtoken']);
@@ -133,15 +142,16 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                             'tweet.empty',
                             'ns_twitter',
                             $args
-                        ), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+                        ), '', AbstractMessage::ERROR);
                     }
                 }
             } catch (\Exception $e) {
-                $this->addFlashMessage($e->getMessage(), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+                $this->addFlashMessage($e->getMessage(), '', AbstractMessage::ERROR);
             }
         } else {
-            $this->addFlashMessage(LocalizationUtility::translate('outhError', 'ns_twitter'), '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+            $this->addFlashMessage(LocalizationUtility::translate('outhError', 'ns_twitter'), '', AbstractMessage::ERROR);
         }
+        return $this->htmlResponse();
     }
 
     /**
@@ -153,7 +163,7 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function setConsumer($key, $secret)
     {
-        $this->consumer = GeneralUtility::makeInstance(\Nitsan\NsTwitter\Contrib\OAuthConsumer::class, $key, $secret);
+        $this->consumer = GeneralUtility::makeInstance(OAuthConsumer::class, $key, $secret);
     }
 
     /**
@@ -165,7 +175,7 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function setToken($key, $secret)
     {
-        $this->token = GeneralUtility::makeInstance(\Nitsan\NsTwitter\Contrib\OAuthToken::class, $key, $secret);
+        $this->token = GeneralUtility::makeInstance(OAuthToken::class, $key, $secret);
     }
 
     public function connectAPI($path, $method, $params, $limit)
@@ -174,10 +184,10 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
         $versionNum = $version->getNumericTypo3Version();
         $explode = explode('.', $versionNum);
-        $request = \Nitsan\NsTwitter\Contrib\OAuthRequest::requestOauth($this->consumer, $this->token, $method, $this->api_url . $path . '.json', $params);
-        $request->sendRequest(GeneralUtility::makeInstance(\Nitsan\NsTwitter\Contrib\OAuthSignatureMethod_HMAC_SHA1::class), $this->consumer, $this->token);
+        $request = OAuthRequest::requestOauth($this->consumer, $this->token, $method, $this->api_url . $path . '.json', $params);
+        $request->sendRequest(GeneralUtility::makeInstance(OAuthSignatureMethod_HMAC_SHA1::class), $this->consumer, $this->token);
         $url = $request->getUrl();
-        if (version_compare(TYPO3_branch, '8.0', '>')) {
+        if (version_compare(GeneralUtility::makeInstance(Typo3Version::class)->getBranch(), '8.0', '>')) {
             $client = GuzzleClientFactory::getClient();
             try {
                 $response = $client->request($method, $url, [
@@ -190,7 +200,7 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                 throw new \Exception($errros);
             }
         } else {
-            $apiRequest = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+            $apiRequest = GeneralUtility::makeInstance(
                 'TYPO3\\CMS\\Core\\Http\\HttpRequest',
                 $url
             );

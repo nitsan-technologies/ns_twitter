@@ -1,11 +1,13 @@
 <?php
 namespace Nitsan\NsTwitter\Hooks;
 
+use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
+use TYPO3\CMS\Core\Information\Typo3Version;
+use TYPO3\CMS\Core\Service\FlexFormService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Service\FlexFormService;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 
-class PageLayoutView implements \TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface
+class PageLayoutView implements PageLayoutViewDrawItemHookInterface
 {
     public function preProcess(\TYPO3\CMS\Backend\View\PageLayoutView &$parentObject, &$drawItem, &$headerContent, &$itemContent, array &$row)
     {
@@ -19,11 +21,11 @@ class PageLayoutView implements \TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHo
             $view = $this->getFluidTemplate($extKey, 'Nstwitter');
 
             if (!empty($row['pi_flexform'])) {
-                /** @var FlexFormService $flexFormService */
-                if (version_compare(TYPO3_branch, '9.0', '>')) {
-                    $flexFormService = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Service\FlexFormService::class);
+                /** @var \TYPO3\CMS\Core\Service\FlexFormService $flexFormService */
+                if (version_compare(GeneralUtility::makeInstance(Typo3Version::class)->getBranch(), '9.0', '>')) {
+                    $flexFormService = GeneralUtility::makeInstance(FlexFormService::class);
                 } else {
-                    $flexFormService = GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Service\FlexFormService::class);
+                    $flexFormService = GeneralUtility::makeInstance(FlexFormService::class);
                 }
             }
 

@@ -8,14 +8,10 @@ $EM_CONF[$_EXTKEY] = [
 	'author_email' => 'sanjay@nitsan.in',
 	'author_company' => 'NITSAN Technologies Pvt Ltd',
 	'state' => 'stable',
-	'internal' => '',
-	'uploadfolder' => '0',
-	'createDirs' => '',
-	'clearCacheOnLoad' => 0,
 	'version' => '2.2.5',
 	'constraints' => [
 		'depends' => [
-			'typo3' => '7.0.0-10.9.99',
+			'typo3' => '>=11.5.0',
 		],
 		'conflicts' => [
 		],
