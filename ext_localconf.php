@@ -3,16 +3,21 @@ if (!defined('TYPO3_MODE')) {
 	die('Access denied.');
 }
 
+if (version_compare(TYPO3_branch, '10.0', '>=')) {
+    $moduleClass = \Nitsan\NsTwitter\Controller\TweetController::class;
+} else {
+    $moduleClass = 'Tweet';
+}
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
 	'Nitsan.ns_twitter',
 	'Recenttweets',
 	[
-		'Tweet' => 'list',
+		$moduleClass => 'list',
 
 	],
 	// non-cacheable actions
 	[
-		'Tweet' => '',
+		$moduleClass => '',
 
 	]
 );
