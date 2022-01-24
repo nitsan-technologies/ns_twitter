@@ -21,7 +21,7 @@
     }
   },
   "replace": {
-      "nitsan/ns-twitter": "self.version"
+      "typo3-ter/ns-twitter": "self.version"
   },
   "config": {
     "vendor-dir": ".Build/vendor/",
