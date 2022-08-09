@@ -2,7 +2,7 @@
 
 $EM_CONF['ns_twitter'] = [
 	'title' => '[NITSAN] Twitter Plugin',
-	'description' => 'Twitter extension brings all your recent tweets to your TYPO3 site. LiveDemo: https://demo.t3terminal.com/t3t-extensions/twitter Pro version: You can download PRO version for more-features & free-support at https://t3terminal.com/twitter-display-plugin-free/',
+	'description' => 'Twitter extension brings all your recent tweets to your TYPO3 site. LiveDemo: https://demo.t3planet.com/t3t-extensions/twitter Pro version: You can download PRO version for more-features & free-support at https://t3planet.com/typo3-twitter-extension',
 	'category' => 'plugin',
 	'author' => 'Team NITSAN',
 	'author_email' => 'sanjay@nitsan.in',
