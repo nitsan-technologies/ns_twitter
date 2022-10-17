@@ -104,6 +104,7 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                             $resultdate = strtotime($createdDate);
                         }
                         // Keep raw text for use in template for plaintext
+                        $results[$key]['text'] = isset($results[$key]['text']) ? $results[$key]['text'] : '';
                         $results[$key]['text_raw'] = $results[$key]['text'];
                         // Store converted text
                         $results[$key]['text'] = $this->convert_links($results[$key]['text']);
@@ -114,6 +115,7 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                                 $results[$key]['retweeted_status']['full_text_raw'] = $value['retweeted_status']['full_text'];
                                 $results[$key]['retweeted_status']['full_text'] = $this->convert_links($results[$key]['retweeted_status']['full_text']);
                             }
+                            $results[$key]['full_text'] = isset($results[$key]['full_text']) ? $results[$key]['full_text'] : '';
                             $results[$key]['full_text_raw'] = $results[$key]['full_text'];
                             $results[$key]['full_text'] = $this->convert_links($results[$key]['full_text']);
                             $results[$key]['text'] = $results[$key]['full_text'];

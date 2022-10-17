@@ -54,6 +54,9 @@
 							<config>
 								<type>input</type>
 								<eval>trim,required,int</eval>
+								<range>
+									<lower>1</lower>
+								</range>
 								<default>5</default>
 							</config>
 						</TCEforms>
