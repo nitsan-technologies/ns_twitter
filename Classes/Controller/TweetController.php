@@ -2,29 +2,29 @@
 namespace Nitsan\NsTwitter\Controller;
 
 /***************************************************************
-*
-*  Copyright notice
-*
-*  (c) 2017
-*
-*  All rights reserved
-*
-*  This script is part of the TYPO3 project. The TYPO3 project is
-*  free software; you can redistribute it and/or modify
-*  it under the terms of the GNU General Public License as published by
-*  the Free Software Foundation; either version 3 of the License, or
-*  (at your option) any later version.
-*
-*  The GNU General Public License can be found at
-*  http://www.gnu.org/copyleft/gpl.html.
-*
-*  This script is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU General Public License for more details.
-*
-*  This copyright notice MUST APPEAR in all copies of the script!
-***************************************************************/
+ *
+ *  Copyright notice
+ *
+ *  (c) 2017
+ *
+ *  All rights reserved
+ *
+ *  This script is part of the TYPO3 project. The TYPO3 project is
+ *  free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  The GNU General Public License can be found at
+ *  http://www.gnu.org/copyleft/gpl.html.
+ *
+ *  This script is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ ***************************************************************/
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
@@ -65,21 +65,21 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
         /** Set access tokens here - see: https://dev.twitter.com/apps/ **/
         if ($configuration['key'] !== '' && $configuration['secret'] && $configuration['authkey'] && $configuration['authtoken']) {
-            $params['exclude_replies'] = $this->settings['exclude_replies'];
-            $params['include_rts'] = $this->settings['include_rts']==1 ? 0 : 1;
-            $params['tweet_mode'] = $this->settings['tweet_mode'];
+            $params['exclude_replies'] = $this->settings['exclude_replies'] ?? null;
+            $params['include_rts'] = $this->settings['include_rts'] ?? null == 1 ? 0 : 1;
+            $params['tweet_mode'] = $this->settings['tweet_mode'] ?? null;
             $params['count'] = $limit;
             try {
-                if ($this->settings['mode'] == 'user') {
+                if ($this->settings['mode'] ?? null == 'user') {
                     $params['screen_name'] = [
-                        'screen_name' => urlencode($this->settings['username'])
+                        'screen_name' => urlencode($this->settings['username'] ?? null)
                     ];
                     $path = 'statuses/user_timeline';
                     $params['include_entities'] = 'true';
                     $response = $this->connectAPI($path, 'GET', $params, $limit);
                     $tweets = json_decode($response, 1);
                 } else {
-                    $params['q'] = urlencode($this->settings['hashtag']);
+                    $params['q'] = urlencode($this->settings['hashtag'] ?? null);
                     $path = 'search/tweets';
                     $params['include_entities'] = 'true';
                     $response = $this->connectAPI($path, 'GET', $params, $limit);
@@ -98,7 +98,7 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                         // Check if this a retweet (helpful for Template)
                         $results[$key]['is_retweet'] = isset($value['retweeted_status']);
 
-                        if ($this->settings['dateFormat'] == 'ago') {
+                        if ($this->settings['dateFormat'] ?? null == 'ago') {
                             $resultdate = $this->timeDifference($createdDate);
                         } else {
                             $resultdate = strtotime($createdDate);
@@ -109,7 +109,7 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                         // Store converted text
                         $results[$key]['text'] = $this->convert_links($results[$key]['text']);
 
-                        if ($this->settings['tweet_mode'] == 'extended') {
+                        if ($this->settings['tweet_mode'] ?? null == 'extended') {
                             if ($results[$key]['is_retweet']) {
                                 // Keep raw for use in template for plaintext
                                 $results[$key]['retweeted_status']['full_text_raw'] = $value['retweeted_status']['full_text'];
@@ -126,10 +126,10 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                     if (!empty($results)) {
                         $this->view->assign('tweets', $results);
                     } else {
-                        if ($this->settings['mode']=='user') {
-                            $args[] = $this->settings['username'];
+                        if ($this->settings['mode'] ?? null =='user') {
+                            $args[] = $this->settings['username'] ?? null;
                         } else {
-                            $args[] = $this->settings['hashtag'];
+                            $args[] = $this->settings['hashtag'] ?? null;
                         }
                         $this->addFlashMessage(LocalizationUtility::translate(
                             'tweet.empty',
@@ -203,10 +203,10 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         if (($statusCode === 200) || empty($apiResults)) {
             return $apiResults;
         } else {
-            if ($this->settings['mode']=='user') {
-                $args[] = $this->settings['username'];
+            if ($this->settings['mode'] ?? null =='user') {
+                $args[] = $this->settings['username'] ?? null;
             } else {
-                $args[] = $this->settings['hashtag'];
+                $args[] = $this->settings['hashtag'] ?? null;
             }
             $errros = LocalizationUtility::translate('tweet.empty', 'ns_twitter', $args);
             throw new \Exception($errros);
