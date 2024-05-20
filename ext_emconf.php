@@ -1,18 +1,20 @@
 <?php
 
 $EM_CONF['ns_twitter'] = [
-	'title' => '[NITSAN] Twitter Plugin',
-	'description' => 'Twitter extension brings all your recent tweets to your TYPO3 site. LiveDemo: https://demo.t3planet.com/t3t-extensions/twitter Pro version: You can download PRO version for more-features & free-support at https://t3planet.com/typo3-twitter-extension',
+	'title' => 'Twitter',
+	'description' => "Display fully customizable, responsive, and search engine crawlable  Twitter feeds on your TYPO3 website. The TYPO3 Twitter Extension easily integrates to display Tweets that perfectly match your site's appearance and offers many customization options. Easily embed Twitter Timelines, Feeds, Follow buttons, and Like buttons on posts, pages, and widget areas. 
+	
+	Documentation & Free Support: https://t3planet.com/typo3-twitter-extension",
 	'category' => 'plugin',
-	'author' => 'Team NITSAN',
+	'author' => 'T3: Nilesh Malankiya, T3: Jay Bhalgamiya, QA: Krishna Dhapa',
 	'author_email' => 'sanjay@nitsan.in',
-	'author_company' => 'NITSAN Technologies Pvt Ltd',
+	'author_company' => 'T3Planet // NITSAN',
 	'state' => 'stable',
 	'internal' => '',
 	'uploadfolder' => '0',
 	'createDirs' => '',
 	'clearCacheOnLoad' => 0,
-	'version' => '3.1.0',
+	'version' => '3.1.1',
 	'constraints' => [
 		'depends' => [
 			'typo3' => '7.0.0-11.5.99',

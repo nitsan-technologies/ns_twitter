@@ -1,7 +1,7 @@
 {
   "name": "nitsan/ns-twitter",
   "type": "typo3-cms-extension",
-  "description": "Twitter extension brings all your recent tweets to your TYPO3 site. Live-Demo: https://demo.t3planet.com/t3t-extensions/twitter Pro version: You can download PRO version for more-features & free-support at https://t3planet.com/typo3-twitter-extension",
+  "description": "Display fully customizable, responsive, and search engine crawlable  Twitter feeds on your TYPO3 website. The TYPO3 Twitter Extension easily integrates to display Tweets that perfectly match your site's appearance and offers many customization options. Easily embed Twitter Timelines, Feeds, Follow buttons, and Like buttons on posts, pages, and widget areas. Documentation & Free Support: https://t3planet.com/typo3-twitter-extension",
   "homepage": "https://extensions.typo3.org/extension/ns_twitter/",
   "license": "GPL-2.0+",
   "keywords": [
