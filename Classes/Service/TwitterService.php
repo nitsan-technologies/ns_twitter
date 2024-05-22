@@ -130,9 +130,11 @@ class TwitterService
     private function getExtCong(): array
     {
         if ($this->t3Version > 8) {
+            // @extensionScannerIgnoreLine
             $extensionConfiguration = GeneralUtility::makeInstance(ExtensionConfiguration::class);
             return $extensionConfiguration->get('ns_twitter');
         } else {
+            // @extensionScannerIgnoreLine
             return unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['ns_twitter']);
         }
     }
