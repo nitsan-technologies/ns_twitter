@@ -116,7 +116,7 @@ class TwitterService
         } else {
             if ($e->getCode() === 401) {
                 return LocalizationUtility::translate('LLL:EXT:ns_twitter/Resources/Private/Language/locallang.xlf:api.error.401');
-            }elseif($e->getCode() === 400 && preg_match($e->getMessage(), 'The `username` query parameter value')) {
+            }elseif($e->getCode() === 400 && strpos($e->getMessage(), 'The `username` query parameter value')) {
                 return LocalizationUtility::translate('LLL:EXT:ns_twitter/Resources/Private/Language/locallang.xlf:api.error.400');
             }else {
                 return LocalizationUtility::translate('LLL:EXT:ns_twitter/Resources/Private/Language/locallang.xlf:api.error.401');

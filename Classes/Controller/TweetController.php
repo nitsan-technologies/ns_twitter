@@ -22,6 +22,14 @@ class TweetController extends ActionController
         $twitterService = GeneralUtility::makeInstance(TwitterService::class);
         $userProfile = $twitterService->getUserProfile($this->settings['username']);
 
+        if($this->getCurrentTypo3Version() >= 12) {
+            // @extensionScannerIgnoreLine
+            $severityClass = \TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::ERROR;
+        } else {
+            // @extensionScannerIgnoreLine
+            $severityClass = \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR;
+        }
+
         if(isset($userProfile['success']) && $userProfile['success']) {
 
             $settings = $this->settings;
@@ -74,7 +82,7 @@ class TweetController extends ActionController
                 $this->addFlashMessage(
                     $tweets['message'], 
                     '', 
-                    2
+                    $severityClass
                 );
                 $this->view->assign('showNoTweet', 0);
             }
@@ -83,7 +91,7 @@ class TweetController extends ActionController
             $this->addFlashMessage(
                 $userProfile['message'], 
                 '',
-                2
+                $severityClass
             );
             $this->view->assign('showNoTweet', 0);
         }
