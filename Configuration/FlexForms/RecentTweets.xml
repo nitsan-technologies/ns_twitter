@@ -2,102 +2,44 @@
 	<sheets>
 		<sDEF>
 			<ROOT>
-				<TCEforms>
-					<sheetTitle>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.sheetTitle</sheetTitle>
-				</TCEforms>
+				<sheetTitle>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.sheetTitle</sheetTitle>
 				<type>array</type>
 				<el>
-					<settings.mode>
-						<TCEforms>
-							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.mode</label>
-							<onChange>reload</onChange>
-							<config>
-								<type>select</type>
-								<renderType>selectSingle</renderType>
-								<items type="array">
-									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.mode.user</numIndex>
-										<numIndex index="1">user</numIndex>
-									</numIndex>
-									<numIndex index="1" type="array">
-										<numIndex index="0">LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.mode.hashtag</numIndex>
-										<numIndex index="1">hashtag</numIndex>
-									</numIndex>
-								</items>
-								<default>user</default>
-							</config>
-						</TCEforms>
-					</settings.mode>
 					<settings.username>
-						<TCEforms>
-							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.username</label>
-							<displayCond>FIELD:settings.mode:=:user</displayCond>
-							<config>
-								<type>input</type>
-								<eval>required</eval>
-							</config>
-						</TCEforms>
+						<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.username</label>
+						<config>
+							<type>input</type>
+							<eval>required</eval>
+						</config>
 					</settings.username>
-					<settings.hashtag>
-						<TCEforms>
-							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.hashtag</label>
-							<displayCond>FIELD:settings.mode:=:hashtag</displayCond>
-							<config>
-								<type>text</type>
-								<eval>required</eval>
-							</config>
-						</TCEforms>
-					</settings.hashtag>
 					<settings.limit>
-						<TCEforms>
-							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.limit</label>
-							<config>
-								<type>input</type>
-								<eval>trim,required,int</eval>
-								<range>
-									<lower>1</lower>
-								</range>
-								<default>5</default>
-							</config>
-						</TCEforms>
+						<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.limit</label>
+						<config>
+							<type>input</type>
+							<eval>trim,required,int</eval>
+							<range>
+								<lower>5</lower>
+								<upper>100</upper>
+							</range>
+							<slider>
+								<step>1</step>
+							</slider>
+							<default>5</default>
+						</config>
 					</settings.limit>
-					<settings.tweet_mode>
-						<TCEforms>
-							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.tweet_mode</label>
-							<config>
-								<type>select</type>
-								<renderType>selectSingle</renderType>
-								<items type="array">
-									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.tweet_mode.compat</numIndex>
-										<numIndex index="1">compat</numIndex>
-									</numIndex>
-									<numIndex index="1" type="array">
-										<numIndex index="0">LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.tweet_mode.extended</numIndex>
-										<numIndex index="1">extended</numIndex>
-									</numIndex>
-								</items>
-								<default>compat</default>
-							</config>
-						</TCEforms>
-					</settings.tweet_mode>
 					<settings.exclude_replies>
-						<TCEforms>
-							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.exclude_replies</label>
-							<displayCond>FIELD:settings.mode:!=:hashtag</displayCond>
-							<config>
-								<type>check</type>
-							</config>
-						</TCEforms>
+						<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.exclude_replies</label>
+						<config>
+							<type>check</type>
+							<renderType>checkboxToggle</renderType>
+						</config>
 					</settings.exclude_replies>
 					<settings.include_rts>
-						<TCEforms>
-							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.include_rts</label>
-							<displayCond>FIELD:settings.mode:!=:hashtag</displayCond>
-							<config>
-								<type>check</type>
-							</config>
-						</TCEforms>
+						<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.include_rts</label>
+						<config>
+							<type>check</type>
+							<renderType>checkboxToggle</renderType>
+						</config>
 					</settings.include_rts>
 				</el>
 			</ROOT>
@@ -105,53 +47,49 @@
 
 		<additional>
 			<ROOT>
-				<TCEforms>
-					<sheetTitle>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.additional</sheetTitle>
-				</TCEforms>
+				<sheetTitle>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.additional</sheetTitle>
 				<type>array</type>
 				<el>
 					<settings.dateFormat>
-						<TCEforms>
-							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.dateFormat</label>
-							<config>
-								<type>select</type>
-								<renderType>selectSingle</renderType>
-								<items type="array">
-									<numIndex index="0" type="array">
-										<numIndex index="0">LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.dateFormat.0</numIndex>
-										<numIndex index="1">ago</numIndex>
-									</numIndex>
-									<numIndex index="1" type="array">
-										<numIndex index="0">LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.dateFormat.1</numIndex>
-										<numIndex index="1">date</numIndex>
-									</numIndex>
-								</items>
-							</config>
-						</TCEforms>
+						<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.dateFormat</label>
+						<config>
+							<type>select</type>
+							<renderType>selectSingle</renderType>
+							<items type="array">
+								<numIndex index="0" type="array">
+									<numIndex index="0">LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.dateFormat.0</numIndex>
+									<numIndex index="1">ago</numIndex>
+								</numIndex>
+								<numIndex index="1" type="array">
+									<numIndex index="0">LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.dateFormat.1</numIndex>
+									<numIndex index="1">date</numIndex>
+								</numIndex>
+							</items>
+						</config>
 					</settings.dateFormat>
 					<settings.reply>
-						<TCEforms>
-							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.reply</label>
-							<config>
-								<type>check</type>
-							</config>
-						</TCEforms>
+						<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.reply</label>
+						<config>
+							<type>check</type>
+							<renderType>checkboxToggle</renderType>
+							<default>1</default>
+						</config>
 					</settings.reply>
 					<settings.retweet>
-						<TCEforms>
-							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.retweet</label>
-							<config>
-								<type>check</type>
-							</config>
-						</TCEforms>
+						<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.retweet</label>
+						<config>
+							<type>check</type>
+							<renderType>checkboxToggle</renderType>
+							<default>1</default>
+						</config>
 					</settings.retweet>
 					<settings.like>
-						<TCEforms>
-							<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.like</label>
-							<config>
-								<type>check</type>
-							</config>
-						</TCEforms>
+						<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.like</label>
+						<config>
+							<type>check</type>
+							<renderType>checkboxToggle</renderType>
+							<default>1</default>
+						</config>
 					</settings.like>
 				</el>
 			</ROOT>

@@ -1,18 +1,26 @@
 <?php
-defined('TYPO3_MODE') or die();
 
-$_EXTKEY = 'ns_twitter';
+declare(strict_types=1);
 
-/***************
- * Plugin
- */
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    'ns_twitter',
-    'Recenttweets',
-    'Recent Tweets'
-);
+defined('TYPO3_MODE') || defined('TYPO3') || die('Access denied.');
 
-$pluginSignature = str_replace('_', '', $_EXTKEY) . '_recenttweets';
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$pluginSignature] = 'recursive,select_key,pages';
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/RecentTweets.xml');
+(static function () {
+
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+        'NsTwitter',
+        'Recenttweets',
+        'LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:wizardTitle',
+        'twitter-plugin',
+        'plugins',
+        'LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:wizardDescription'
+    );
+    
+    $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['nstwitter_recenttweets'] = 'recursive,select_key,pages';
+    $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['nstwitter_recenttweets'] = 'pi_flexform';
+    
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+        'nstwitter_recenttweets', 
+        'FILE:EXT:ns_twitter/Configuration/FlexForms/RecentTweets.xml'
+    );
+    
+})();

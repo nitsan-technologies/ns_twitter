@@ -16,23 +16,11 @@
 			<trans-unit id="flexform.sheetTitle">
 				<source>Main Settings</source>
 			</trans-unit>
-			<trans-unit id="flexform.settings.mode">
-				<source>Mode</source>
-			</trans-unit>
-			<trans-unit id="flexform.settings.mode.user">
-				<source>Username</source>
-			</trans-unit>
-			<trans-unit id="flexform.settings.mode.hashtag">
-				<source>Keyword</source>
-			</trans-unit>
 			<trans-unit id="flexform.settings.limit">
 				<source>Tweets To Display (Including Retweets and Replies)</source>
 			</trans-unit>
 			<trans-unit id="flexform.settings.username">
 				<source>Username</source>
-			</trans-unit>
-			<trans-unit id="flexform.settings.hashtag">
-				<source>Hashtag</source>
 			</trans-unit>
 			<trans-unit id="flexform.additional">
 				<source>Additional Configuration</source>
@@ -68,20 +56,20 @@
 			<trans-unit id="consumerTokenSecret">
 				<source>OAuth Access Token Secret</source>
 			</trans-unit>
-			<trans-unit id="flexform.settings.tweet_mode">
-				<source>Tweet Mode</source>
-			</trans-unit>
-			<trans-unit id="flexform.settings.tweet_mode.compat">
-				<source>Standard (max 140 chars)</source>
-			</trans-unit>
-			<trans-unit id="flexform.settings.tweet_mode.extended">
-				<source>Extended (over 140 chars)</source>
+			<trans-unit id="bearertoken">
+				<source>Bearer Token</source>
 			</trans-unit>
 			<trans-unit id="flexform.exclude_replies">
 				<source>Exclude Replies</source>
 			</trans-unit>
 			<trans-unit id="flexform.include_rts">
 				<source>Exclude Retweets</source>
+			</trans-unit>
+			<trans-unit id="flexform.yes">
+				<source>Yes</source>
+			</trans-unit>
+			<trans-unit id="flexform.no">
+				<source>No</source>
 			</trans-unit>
 		</body>
 	</file>

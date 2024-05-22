@@ -6,85 +6,61 @@
 	</thead>
 	<tbody>
 		<tr>
-            <th style='text-align:left;'><f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.mode" /></th>
-            <f:if condition="{flexformData.settings.mode}=='user'">
-            	<f:then>	
-            		<td style='padding-left: 10px;'><f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.username" /></td>
-            	</f:then>
-            	<f:else>
-            		<td style='padding-left: 10px;'><f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.hashtag" /></td>
-            	</f:else>
-            </f:if>
-        </tr>
-        <f:if condition="{flexformData.settings.mode}=='user'">
-        	<f:then>	
-				<f:if condition="{flexformData.settings.username}">
-					<tr>
-			            <th style='text-align:left;'><f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.username" /></th>
-			            <td style='padding-left: 10px;'>{flexformData.settings.username}</td>
-			        </tr>
-				</f:if>
-       		</f:then>
-       		<f:else>
-				<f:if condition="{flexformData.settings.hashtag}">
-					<tr>
-			            <th style='text-align:left;'><f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.hashtag" /></th>
-			            <td style='padding-left: 10px;'>{flexformData.settings.hashtag}</td>
-			        </tr>
-				</f:if>
-       		</f:else>
-       	</f:if>
-		<f:if condition="{flexformData.settings.limit}">
-			<tr>
-	            <th style='text-align:left;'><f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.limit" /></th>
-	            <td style='padding-left: 10px;'>{flexformData.settings.limit}</td>
-	        </tr>
-		</f:if>
-		<f:if condition="{flexformData.settings.dateFormat}">
-			<tr>
-	            <th style='text-align:left;'><f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.dateFormat" /></th>
-	            <td style='padding-left: 10px;'>{flexformData.settings.dateFormat}</td>
-	        </tr>
-		</f:if>
-		<f:if condition="{flexformData.settings.reply}">
-			<tr>
-	            <th style='text-align:left;'><f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.reply" /></th>
-	            <td style='padding-left: 10px;'><i class='fa fa-check'></i></td>
-	        </tr>
-		</f:if>
-		<f:if condition="{flexformData.settings.retweet}">
-			<tr>
-	            <th style='text-align:left;'><f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.retweet" /></th>
-	            <td style='padding-left: 10px;'><i class='fa fa-check'></i></td>
-	        </tr>
-		</f:if>
-		<f:if condition="{flexformData.settings.like}">
-			<tr>
-	            <th style='text-align:left;'><f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.like" /></th>
-	            <td style='padding-left: 10px;'><i class='fa fa-check'></i></td>
-	        </tr>
-		</f:if>
-		<f:if condition="{flexformData.settings.mode}!='hashtag'">
-			<f:if condition="{flexformData.settings.exclude_replies}">
-				<tr>
-					<th style='text-align:left;'>
-						<f:translate
-							key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.exclude_replies" />
-					</th>
-					<td style='padding-left: 10px;'><i class='fa fa-check'></i></td>
-				</tr>
+			<th style='text-align:left;'><f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.username" /></th>
+			<f:if condition="{pi_flexform_transformed.settings.username}">
+				<td style='padding-left: 10px;'>{pi_flexform_transformed.settings.username}</td>
 			</f:if>
-		</f:if>
-		<f:if condition="{flexformData.settings.mode}!='hashtag'">
-			<f:if condition="{flexformData.settings.include_rts}">
-				<tr>
-					<th style='text-align:left;'>
-						<f:translate
-							key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.include_rts" />
-					</th>
-					<td style='padding-left: 10px;'><i class='fa fa-check'></i></td>
-				</tr>
+		</tr>
+		<tr>
+			<th style='text-align:left;'><f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.settings.limit" /></th>
+			<f:if condition="{pi_flexform_transformed.settings.limit}">
+	            <td style='padding-left: 10px;'>{pi_flexform_transformed.settings.limit}</td>
 			</f:if>
-		</f:if>
+		</tr>
+		<tr>
+			<th style='text-align:left;'><f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.dateFormat" /></th>
+			<f:if condition="{pi_flexform_transformed.settings.dateFormat}">
+	            <td style='padding-left: 10px;'>{pi_flexform_transformed.settings.dateFormat}</td>
+			</f:if>
+		</tr>
+		<tr>
+			<th style='text-align:left;'><f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.reply" /></th>
+			<td style='padding-left: 10px;'>
+				<f:if condition="{pi_flexform_transformed.settings.reply}">
+					<f:then>
+						<f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.yes" /></i>
+					</f:then>
+					<f:else>
+						<f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.no" /></i>
+					</f:else>
+				</f:if>
+			</td>
+		</tr>
+		<tr>
+			<th style='text-align:left;'><f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.retweet" /></th>
+			<td style='padding-left: 10px;'>
+				<f:if condition="{pi_flexform_transformed.settings.retweet}">
+					<f:then>
+						<f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.yes" /></i>
+					</f:then>
+					<f:else>
+						<f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.no" /></i>
+					</f:else>
+				</f:if>
+			</td>
+		</tr>
+		<tr>
+			<th style='text-align:left;'><f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.like" /></th>
+			<td style='padding-left: 10px;'>
+				<f:if condition="{pi_flexform_transformed.settings.like}">
+					<f:then>
+						<f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.yes" /></i>
+					</f:then>
+					<f:else>
+						<f:translate key="LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.no" /></i>
+					</f:else>
+				</f:if>
+			</td>
+		</tr>
 	</tbody>
 </table>

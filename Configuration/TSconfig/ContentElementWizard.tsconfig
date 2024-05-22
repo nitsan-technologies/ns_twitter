@@ -1,15 +1,20 @@
-mod.wizards.newContentElement.wizardItems.plugins {
-	elements{
-		ns_twitter{
-			icon = ../typo3conf/ext/ns_twitter/Resources/Public/Icons/twitter-plugin.svg
-			iconIdentifier = twitter-plugin
-			title = LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:wizardTitle
-			description = LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:wizardDescription
-			tt_content_defValues{
-				CType = list
-				list_type = nstwitter_recenttweets
+mod {
+    wizards.newContentElement.wizardItems.plugins {
+        elements {
+            nstwitter_recenttweets {
+				icon = EXT:ns_twitter/Resources/Public/Icons/twitter-plugin.svg
+				iconIdentifier = twitter-plugin
+				title = LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:wizardTitle
+				description = LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:wizardDescription
+				tt_content_defValues {
+					CType = list
+					list_type = nstwitter_recenttweets
+				}
 			}
-		}
-	}
-	show = *
+        }
+    }
+
+    web_layout {
+        tt_content.preview.list.nstwitter_recenttweets = EXT:ns_twitter/Resources/Private/Backend/Nstwitter.html
+    }
 }
