@@ -31,14 +31,12 @@
 						<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.exclude_replies</label>
 						<config>
 							<type>check</type>
-							<renderType>checkboxToggle</renderType>
 						</config>
 					</settings.exclude_replies>
 					<settings.include_rts>
 						<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.include_rts</label>
 						<config>
 							<type>check</type>
-							<renderType>checkboxToggle</renderType>
 						</config>
 					</settings.include_rts>
 				</el>
@@ -71,7 +69,6 @@
 						<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.reply</label>
 						<config>
 							<type>check</type>
-							<renderType>checkboxToggle</renderType>
 							<default>1</default>
 						</config>
 					</settings.reply>
@@ -79,7 +76,6 @@
 						<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.retweet</label>
 						<config>
 							<type>check</type>
-							<renderType>checkboxToggle</renderType>
 							<default>1</default>
 						</config>
 					</settings.retweet>
@@ -87,7 +83,6 @@
 						<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.like</label>
 						<config>
 							<type>check</type>
-							<renderType>checkboxToggle</renderType>
 							<default>1</default>
 						</config>
 					</settings.like>

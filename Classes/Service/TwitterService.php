@@ -6,9 +6,10 @@ namespace Nitsan\NsTwitter\Service;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * TwitterService
@@ -23,15 +24,17 @@ class TwitterService
     protected ?Client $client = null;
 
     /**
-     * @var array
+     * @var int
      */
-    protected array $extConf;
+    protected int $t3Version;
 
     public function __construct()
     {
         $this->client = new Client();
-        $extensionConfiguration = GeneralUtility::makeInstance(ExtensionConfiguration::class);
-        $this->extConf = $extensionConfiguration->get('ns_twitter');
+        $typo3VersionArray = VersionNumberUtility::convertVersionStringToArray(
+            VersionNumberUtility::getCurrentTypo3Version()
+        );
+        $this->t3Version = $typo3VersionArray['version_main'];
     }
 
     /**
@@ -77,7 +80,7 @@ class TwitterService
             $response = $this->client->get($url, [
                 'query' => $params,
                 'headers' => [
-                    'Authorization' => "Bearer ".$this->extConf['bearertoken']
+                    'Authorization' => "Bearer ".$this->getExtCong()['bearertoken']
                 ]
             ])->getBody()->getContents();
 
@@ -108,12 +111,29 @@ class TwitterService
      */
     private function handleGuzzleError(GuzzleException $e): string
     {
-        if ($e->getCode() === 401) {
+        if($this->t3Version == 8) {
             return LocalizationUtility::translate('LLL:EXT:ns_twitter/Resources/Private/Language/locallang.xlf:api.error.401');
-        }elseif($e->getCode() === 400 && str_contains($e->getMessage(), 'The `username` query parameter value')) {
-            return LocalizationUtility::translate('LLL:EXT:ns_twitter/Resources/Private/Language/locallang.xlf:api.error.400');
-        }else {
-            return LocalizationUtility::translate('LLL:EXT:ns_twitter/Resources/Private/Language/locallang.xlf:api.error.401');
+        } else {
+            if ($e->getCode() === 401) {
+                return LocalizationUtility::translate('LLL:EXT:ns_twitter/Resources/Private/Language/locallang.xlf:api.error.401');
+            }elseif($e->getCode() === 400 && preg_match($e->getMessage(), 'The `username` query parameter value')) {
+                return LocalizationUtility::translate('LLL:EXT:ns_twitter/Resources/Private/Language/locallang.xlf:api.error.400');
+            }else {
+                return LocalizationUtility::translate('LLL:EXT:ns_twitter/Resources/Private/Language/locallang.xlf:api.error.401');
+            }
+        }
+    }
+    
+    /**
+     * @return array
+     */
+    private function getExtCong(): array
+    {
+        if ($this->t3Version > 8) {
+            $extensionConfiguration = GeneralUtility::makeInstance(ExtensionConfiguration::class);
+            return $extensionConfiguration->get('ns_twitter');
+        } else {
+            return unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['ns_twitter']);
         }
     }
 }

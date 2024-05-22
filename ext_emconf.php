@@ -16,7 +16,7 @@ $EM_CONF['ns_twitter'] = [
 	'version' => '3.1.1',
 	'constraints' => [
 		'depends' => [
-			'typo3' => '7.0.0-13.1.99',
+			'typo3' => '8.7.0-13.1.99',
 		],
 		'conflicts' => [
 		],

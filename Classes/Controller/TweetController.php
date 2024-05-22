@@ -5,7 +5,6 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use Nitsan\NsTwitter\Service\TwitterService;
 use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
-use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -75,7 +74,7 @@ class TweetController extends ActionController
                 $this->addFlashMessage(
                     $tweets['message'], 
                     '', 
-                    ContextualFeedbackSeverity::ERROR
+                    2
                 );
                 $this->view->assign('showNoTweet', 0);
             }
@@ -84,7 +83,7 @@ class TweetController extends ActionController
             $this->addFlashMessage(
                 $userProfile['message'], 
                 '',
-                ContextualFeedbackSeverity::ERROR
+                2
             );
             $this->view->assign('showNoTweet', 0);
         }
