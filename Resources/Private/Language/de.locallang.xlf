@@ -6,6 +6,21 @@
 			<trans-unit id="recenttweets">
 				<target>Aktuelle Tweets</target>
 			</trans-unit>
+			<trans-unit id="retweeted_by">
+				<target>Retweeted von</target>
+			</trans-unit>
+			<trans-unit id="tweet.empty">
+				<target>Keine (letzten) Tweets gefunden</target>
+			</trans-unit>
+			<trans-unit id="errorMessage">
+				<target>Die cURL-Erweiterung ist nicht im Server installiert</target>
+			</trans-unit>
+			<trans-unit id="outhError">
+				<target>Autentication fehlt !! Bitte setzen Sie OAuth Access aus dem Backend</target>
+			</trans-unit>
+			<trans-unit id="notweetes">
+				<target>Keine (letzten) Tweets gefunden</target>
+			</trans-unit>
 			<trans-unit id="tweets.reply">
 				<target>Antworten</target>
 			</trans-unit>
@@ -53,15 +68,6 @@
 			</trans-unit>
 			<trans-unit id="12">
 				<target>Dez</target>
-			</trans-unit>
-			<trans-unit id="noTweets">
-				<target>Keine Tweets Gefunden!</target>
-			</trans-unit>
-			<trans-unit id="api.error.401">
-				<target>Nicht autorisierter Zugriff. Bitte überprüfen Sie Ihre Anmeldedaten und versuchen Sie es erneut.</target>
-			</trans-unit>
-			<trans-unit id="api.error.400">
-				<target>Der Benutzer konnte nicht gefunden werden.</target>
 			</trans-unit>
 		</body>
 	</file>

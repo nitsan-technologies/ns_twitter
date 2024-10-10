@@ -1,37 +1,41 @@
 <?php
-
-defined('TYPO3_MODE') || defined('TYPO3') || die('Access denied.');
-
-$typo3VersionArray = \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionStringToArray(
-    \TYPO3\CMS\Core\Utility\VersionNumberUtility::getCurrentTypo3Version()
-);
-
-if ($typo3VersionArray['version_main'] >= 10) {
-    $moduleClass = \Nitsan\NsTwitter\Controller\TweetController::class;
-	$extensionName = 'NsTwitter';
-} else {
-    $moduleClass = 'Tweet';
-	$extensionName = 'Nitsan.NsTwitter';
+if (!defined('TYPO3_MODE')) {
+	die('Access denied.');
 }
 
+if (version_compare(TYPO3_branch, '10.0', '>=')) {
+    $moduleClass = \Nitsan\NsTwitter\Controller\TweetController::class;
+} else {
+    $moduleClass = 'Tweet';
+}
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	$extensionName,
+	'Nitsan.ns_twitter',
 	'Recenttweets',
 	[
 		$moduleClass => 'list',
 
 	],
-);
+	// non-cacheable actions
+	[
+		$moduleClass => '',
 
-// @extensionScannerIgnoreLine
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-	'<INCLUDE_TYPOSCRIPT: source="FILE:EXT:ns_twitter/Configuration/TSconfig/ContentElementWizard.tsconfig">'
+	]
 );
+if (version_compare(TYPO3_branch, '7.0', '>')) {
+	if (TYPO3_MODE === 'BE') {
+		$icons = [
+			'twitter-plugin' => 'ns_twitter.svg',
+		];
+		$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+		foreach ($icons as $identifier => $path) {
+			$iconRegistry->registerIcon(
+				$identifier,
+				\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+				['source' => 'EXT:ns_twitter/Resources/Public/Icons/' . $path]
+			);
+		}
+	}
+}
 
-
-$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
-$iconRegistry->registerIcon(
-	'twitter-plugin',
-	\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-	['source' => 'EXT:ns_twitter/Resources/Public/Icons/ns_twitter.svg']
-);
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['ns_twitter']
+= \Nitsan\NsTwitter\Hooks\PageLayoutView::class;

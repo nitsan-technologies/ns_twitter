@@ -3,8 +3,26 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2017-01-19T17:12:00Z" product-name="ns_twitter">
 		<header/>
 		<body>
+			<trans-unit id="tx_nstwitter_domain_model_tweet">
+				<source>Tweet</source>
+			</trans-unit>
 			<trans-unit id="recenttweets">
 				<source>Recent Tweets</source>
+			</trans-unit>
+			<trans-unit id="retweeted_by">
+				<source>Retweeted By</source>
+			</trans-unit>
+			<trans-unit id="tweet.empty" xml:space="preserve">
+				<source>No (recent) tweets found for given : %s</source>
+			</trans-unit>
+			<trans-unit id="errorMessage">
+				<source>The cURL extension is not installed in the server</source>
+			</trans-unit>
+			<trans-unit id="outhError">
+				<source>Autentication is missing !! Please set OAuth Access from the backend</source>
+			</trans-unit>
+			<trans-unit id="notweetes">
+				<source>No (recent) tweets found</source>
 			</trans-unit>
 			<trans-unit id="tweets.reply">
 				<source>Reply</source>
@@ -14,6 +32,9 @@
 			</trans-unit>
 			<trans-unit id="tweets.like">
 				<source>Like</source>
+			</trans-unit>
+			<trans-unit id="replyingto">
+				<source>Replying to </source>
 			</trans-unit>
 			<trans-unit id="dateFormat">
 				<source>d M</source>
@@ -78,17 +99,8 @@
 			<trans-unit id="12">
 				<source>Dec</source>
 			</trans-unit>
-			<trans-unit id="nstwitter.client.error">
+			<trans-unit id="nstwitter.client.error" xml:space="preserve">
 				<source>Could not authenticate you. Response code: %s</source>
-			</trans-unit>
-			<trans-unit id="noTweets">
-				<source>No Tweets Found!</source>
-			</trans-unit>
-			<trans-unit id="api.error.401">
-				<source>Unauthorized access. Please check your credentials and try again.</source>
-			</trans-unit>
-			<trans-unit id="api.error.400">
-				<source>Could not find the user.</source>
 			</trans-unit>
 		</body>
 	</file>

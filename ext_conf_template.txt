@@ -10,5 +10,3 @@ secret =
 authkey =
 # cat=settings; type=string; label=LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:consumerTokenSecret
 authtoken =	
-# cat=settings; type=string; label=LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:bearertoken
-bearertoken =	

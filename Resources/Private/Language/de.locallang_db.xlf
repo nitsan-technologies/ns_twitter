@@ -55,12 +55,6 @@
 			<trans-unit id="flexform.like">
 				<target>Favoriten Link Anzeigen</target>
 			</trans-unit>
-			<trans-unit id="flexform.yes">
-				<target>Ja</target>
-			</trans-unit>
-			<trans-unit id="flexform.no">
-				<target>Nein</target>
-			</trans-unit>
 			<!-- Constant Editor -->
 			<trans-unit id="consumerKey">
 				<target>OAuth Consumer Schlüssel</target>
@@ -74,8 +68,14 @@
 			<trans-unit id="consumerTokenSecret">
 				<target>OAuth Zugriffs Token Geheimnis</target>
 			</trans-unit>
-			<trans-unit id="bearertoken">
-				<target>Bearer Token</target>
+			<trans-unit id="flexform.settings.tweet_mode">
+				<target>Tweet Modus</target>
+			</trans-unit>
+			<trans-unit id="flexform.settings.tweet_mode.compat">
+				<target>Standard (Maximal 140 Zeichen)</target>
+			</trans-unit>
+			<trans-unit id="flexform.settings.tweet_mode.extended">
+				<target>Erweitert (Mehr als 140 Zeichen)</target>
 			</trans-unit>
 			<trans-unit id="flexform.exclude_replies">
 				<target>Antworten ausschließen</target>
