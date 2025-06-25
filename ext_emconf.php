@@ -1,14 +1,14 @@
 <?php
 
 $EM_CONF['ns_twitter'] = [
-	'title' => 'Twitter',
-	'description' => "Display fully customizable, responsive, and search engine crawlable  Twitter feeds on your TYPO3 website. The TYPO3 Twitter Extension easily integrates to display Tweets that perfectly match your site's appearance and offers many customization options. Easily embed Twitter Timelines, Feeds, Follow buttons, and Like buttons on posts, pages, and widget areas. 
+	'title' => 'TYPO3 Twitter Feed Integration',
+	'description' => "Easily display responsive, customizable, and SEO-friendly Twitter feeds on your TYPO3 site. Embed timelines, tweets, follow buttons, and more with full control over layout and appearance.
 	
 	Documentation & Free Support: https://t3planet.com/typo3-twitter-extension",
 	'category' => 'plugin',
-	'author' => 'T3: Nilesh Malankiya, T3: Jay Bhalgamiya, QA: Krishna Dhapa',
-	'author_email' => 'sanjay@nitsan.in',
-	'author_company' => 'T3Planet // NITSAN',
+	'author' => 'Team T3Planet',
+	'author_email' => 'info@t3planet.de',
+	'author_company' => 'T3Planet',
 	'state' => 'stable',
 	'internal' => '',
 	'uploadfolder' => '0',
