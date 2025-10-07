@@ -27,18 +27,8 @@
 							<default>5</default>
 						</config>
 					</settings.limit>
-					<settings.exclude_replies>
-						<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.exclude_replies</label>
-						<config>
-							<type>check</type>
-						</config>
-					</settings.exclude_replies>
-					<settings.include_rts>
-						<label>LLL:EXT:ns_twitter/Resources/Private/Language/locallang_db.xlf:flexform.include_rts</label>
-						<config>
-							<type>check</type>
-						</config>
-					</settings.include_rts>
+					
+					
 				</el>
 			</ROOT>
 		</sDEF>

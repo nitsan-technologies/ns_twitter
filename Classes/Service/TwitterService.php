@@ -53,7 +53,6 @@ class TwitterService
     /**
      * @param integer $userId
      * @param integer $maxResult
-     * @param string $exclude
      * @return array
      */
     public function getUserTweets(int $userId, int $maxResult, string $exclude = ''): array
@@ -63,9 +62,7 @@ class TwitterService
             'tweet.fields' => 'created_at',
             'max_results' => $maxResult
         ];
-        if($exclude != '') {
-            $params['exclude'] = $exclude;
-        }
+        
         return $this->getRequestData($url, $params);
     }
 

@@ -1,11 +1,11 @@
 <?php
 namespace Nitsan\NsTwitter\Controller;
 
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use Nitsan\NsTwitter\Service\TwitterService;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\VersionNumberUtility;
-use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
  * TweetController
@@ -20,9 +20,9 @@ class TweetController extends ActionController
     public function listAction()
     {
         $twitterService = GeneralUtility::makeInstance(TwitterService::class);
-        $userProfile = $twitterService->getUserProfile($this->settings['username']);
+        $userProfile    = $twitterService->getUserProfile($this->settings['username']);
 
-        if($this->getCurrentTypo3Version() >= 12) {
+        if ($this->getCurrentTypo3Version() >= 12) {
             // @extensionScannerIgnoreLine
             $severityClass = \TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::ERROR;
         } else {
@@ -30,72 +30,64 @@ class TweetController extends ActionController
             $severityClass = \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR;
         }
 
-        if(isset($userProfile['success']) && $userProfile['success']) {
+        if (isset($userProfile['success']) && $userProfile['success']) {
 
             $settings = $this->settings;
-            $limit = empty($settings['limit']) ? 5 : $settings['limit'];
-    
-            $exclude = $results = [];
-    
-            if((int)$this->settings['include_rts'] == 1) {
-                $exclude[] = 'retweets';
-            }
-    
-            if((int)$this->settings['exclude_replies'] == 1) {
-                $exclude[] = 'replies';
-            }
-    
-            $params['include_rts'] = $this->settings['include_rts']==1 ? 0 : 1;
-            $params['count'] = $limit;
-    
+            $limit    = empty($settings['limit']) ? 5 : $settings['limit'];
+
+           
+
+            $params['include_rts'] = $this->settings['include_rts'] == 1 ? 0 : 1;
+            $params['count']       = $limit;
+
             $tweets = $twitterService->getUserTweets(
                 $userProfile['data']['id'],
                 $limit,
-                implode(',', $exclude)
+
+            
             );
 
-            if(isset($tweets['success']) && $tweets['success']) {
+            if (isset($tweets['success']) && $tweets['success']) {
 
                 foreach ($tweets['data'] as $key => $value) {
                     $results[$key] = $value;
-                    $createdDate = $value['created_at'];
-        
+                    $createdDate   = $value['created_at'];
+
                     if ($this->settings['dateFormat'] == 'ago') {
                         $resultdate = $this->timeDifference($createdDate);
                     } else {
                         $resultdate = strtotime($createdDate);
                     }
                     // Keep raw text for use in template for plaintext
-                    $results[$key]['text'] = isset($results[$key]['text']) ? $results[$key]['text'] : '';
+                    $results[$key]['text']     = isset($results[$key]['text']) ? $results[$key]['text'] : '';
                     $results[$key]['text_raw'] = $results[$key]['text'];
                     // Store converted text
                     $results[$key]['text'] = $this->convertLinks($results[$key]['text']);
-        
+
                     $results[$key]['created_at'] = $resultdate;
                 }
                 $this->view->assignMultiple([
-                    'userData' => $userProfile['data'],
-                    'tweets' => $results,
-                    'showNoTweet' => 1
+                    'userData'    => $userProfile['data'],
+                    'tweets'      => $results,
+                    'showNoTweet' => 1,
                 ]);
             } else {
                 $this->addFlashMessage(
-                    $tweets['message'], 
-                    '', 
+                    $tweets['message'],
+                    '',
                     $severityClass
                 );
                 $this->view->assign('showNoTweet', 0);
             }
-    
+
         } else {
             $this->addFlashMessage(
-                $userProfile['message'], 
+                $userProfile['message'],
                 '',
                 $severityClass
             );
             $this->view->assign('showNoTweet', 0);
         }
-        
 
         if ($this->getCurrentTypo3Version() >= 11) {
             return $this->htmlResponse();
@@ -119,11 +111,11 @@ class TweetController extends ActionController
 
         // calculate different time values
         $minute = 60;
-        $hour = $minute * 60;
-        $day = $hour * 24;
-        $year = $day * 365;
+        $hour   = $minute * 60;
+        $day    = $hour * 24;
+        $year   = $day * 365;
 
-        if (!is_numeric($difference) || $difference <= 0) {
+        if (! is_numeric($difference) || $difference <= 0) {
             return '';
         }
 
@@ -170,14 +162,14 @@ class TweetController extends ActionController
     {
         $patterns = [
             '/\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[A-Z0-9+&@#\/%=~_|]/i' => '<a href="\0" target="_blank">\0</a>',
-            '/(@([_a-zA-Z0-9\-êàé-]+))/i' => '<a href="https://twitter.com/$2" title="Follow $2" target="_blank">$1</a>',
-            '/(#([_a-zA-Z0-9\-êàé-]+))/i' => '<a href="https://twitter.com/search?q=$2" title="Search $1" target="_blank">$1</a>',
+            '/(@([_a-zA-Z0-9\-êàé-]+))/i'                                               => '<a href="https://twitter.com/$2" title="Follow $2" target="_blank">$1</a>',
+            '/(#([_a-zA-Z0-9\-êàé-]+))/i'                                               => '<a href="https://twitter.com/search?q=$2" title="Search $1" target="_blank">$1</a>',
         ];
-    
+
         foreach ($patterns as $pattern => $replacement) {
             $status = preg_replace($pattern, $replacement, $status);
         }
-    
+
         return $status;
     }
 
