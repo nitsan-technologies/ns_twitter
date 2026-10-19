@@ -14,10 +14,11 @@ $EM_CONF['ns_twitter'] = [
 	'uploadfolder' => '0',
 	'createDirs' => '',
 	'clearCacheOnLoad' => 0,
-	'version' => '3.1.2',
+	'version' => '3.1.3',
 	'constraints' => [
 		'depends' => [
 			'typo3' => '7.0.0-11.5.99',
+			'ns_license' => '14.5.4-14.9.99',
 		],
 		'conflicts' => [
 		],
